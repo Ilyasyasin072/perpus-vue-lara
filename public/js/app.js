@@ -23578,126 +23578,133 @@ var render = function() {
     "div",
     { staticClass: "page" },
     [
-      _c("div", { staticClass: "topnav", attrs: { id: "myTopnav" } }, [
-        _c(
-          "a",
-          { staticClass: "navbar-brand", attrs: { href: "", id: "brand" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "dashboard" } }
-              },
-              [_vm._v("Perpustakaan")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#news" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "petugas" } }
-              },
-              [_vm._v("Laporan")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#news" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "petugas" } }
-              },
-              [_vm._v("Rak Buku")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#news" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "petugas" } }
-              },
-              [_vm._v("Peminjaman")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#news" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "petugas" } }
-              },
-              [_vm._v("Pengembalian")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#news" } },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navbar-link",
-                attrs: { to: { name: "petugas" } }
-              },
-              [_vm._v("Petugas")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "nav-menu", attrs: { href: "#home" } },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navbar-link", attrs: { to: { name: "books" } } },
-              [_vm._v("Buku")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "icon",
-            attrs: { href: "javascript:void(0);" },
-            on: { click: _vm.myFunction }
-          },
-          [_c("i", { staticClass: "fa fa-bars" })]
-        )
-      ]),
+      _c(
+        "div",
+        { staticClass: "topnav container-fluid", attrs: { id: "myTopnav" } },
+        [
+          _c(
+            "a",
+            { staticClass: "navbar-brand", attrs: { href: "", id: "brand" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "dashboard" } }
+                },
+                [_vm._v("Perpustakaan")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#news" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "petugas" } }
+                },
+                [_vm._v("Laporan")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#news" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "petugas" } }
+                },
+                [_vm._v("Rak Buku")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#news" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "petugas" } }
+                },
+                [_vm._v("Peminjaman")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#news" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "petugas" } }
+                },
+                [_vm._v("Pengembalian")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#news" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "petugas" } }
+                },
+                [_vm._v("Petugas")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "nav-menu", attrs: { href: "#home" } },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navbar-link",
+                  attrs: { to: { name: "books" } }
+                },
+                [_vm._v("Buku")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "icon",
+              attrs: { href: "javascript:void(0);" },
+              on: { click: _vm.myFunction }
+            },
+            [_c("i", { staticClass: "fa fa-bars" })]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("router-view")
     ],

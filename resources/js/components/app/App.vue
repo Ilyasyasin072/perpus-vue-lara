@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <div class="topnav" id="myTopnav">
+        <div class="topnav container-fluid" id="myTopnav">
             <a href="" id="brand" class="navbar-brand">
                 <router-link :to="{ name: 'dashboard' }" class="navbar-link"
                     >Perpustakaan</router-link

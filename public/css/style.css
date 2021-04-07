@@ -42,15 +42,7 @@ body {
     display: none;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #fbb114;
-    color: #2b2d42;
-    text-align: center;
-}
+
 
 .btn-book {
     background-color: white;
