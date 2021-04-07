@@ -2080,7 +2080,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var myVar = 'This is my variable';
 var baseUri = {
-  uri: 'http://127.0.0.1:8000/api/v1/'
+  uri: "http://127.0.0.1:8000/api/v1/"
 };
 
 /***/ }),
