@@ -16,6 +16,7 @@ Vue.prototype.$baseUrl = baseUri.uri;
 import App from './components/app/App.vue';
 import PetugasIndex from './components/petugas/Petugas.vue';
 import Dashboard from './components/dashboard/Dashboard.vue';
+import Books from './components/buku/Buku.vue';
 
 const routes = [
     {
@@ -27,6 +28,11 @@ const routes = [
         name: 'dashboard',
         path: '/',
         component : Dashboard
+    },
+    {
+        name: 'books',
+        path: '/books',
+        component : Books
     }
 ]
 

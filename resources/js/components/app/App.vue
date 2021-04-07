@@ -1,14 +1,46 @@
 <template>
     <div class="page">
         <div class="topnav" id="myTopnav">
-            <a href="#home" class="active"
-                ><router-link :to="{ name: 'dashboard' }" class="navbar-brand"
+            <a href="" id="brand" class="navbar-brand">
+                <router-link :to="{ name: 'dashboard' }" class="navbar-link"
                     >Perpustakaan</router-link
+                >
+            </a>
+            <a href="#news" class="nav-menu">
+                <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    >Laporan</router-link
                 ></a
             >
-            <a href="#news">
+
+
+            <a href="#news" class="nav-menu">
+                <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    >Rak Buku</router-link
+                ></a
+            >
+
+            <a href="#news" class="nav-menu">
+                <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    >Peminjaman</router-link
+                ></a
+            >
+
+            <a href="#news" class="nav-menu">
+                <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    >Pengembalian</router-link
+                ></a
+            >
+
+
+            <a href="#news" class="nav-menu">
                 <router-link :to="{ name: 'petugas' }" class="navbar-link"
                     >Petugas</router-link
+                ></a
+            >
+
+            <a href="#home" class="nav-menu"
+                ><router-link :to="{ name: 'books' }" class="navbar-link"
+                    >Buku</router-link
                 ></a
             >
             <a href="javascript:void(0);" class="icon" v-on:click="myFunction">

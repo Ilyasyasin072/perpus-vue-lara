@@ -37,7 +37,7 @@
                                                 <br />
                                                 {{ books.tahun_penerbit }}
                                             </p>
-                                            <a href="#" class="btn btn-primary"
+                                            <a href="#" class="btn-book"
                                                 >Go somewhere</a
                                             >
                                         </div>
