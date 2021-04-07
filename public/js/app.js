@@ -1967,10 +1967,9 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    var uri = "http://127.0.0.1:8000/api/v1/buku";
+    var uri = this.$baseUrl + "buku";
     this.axios.get(uri).then(function (response) {
       _this.books = response.data.result;
-      console.log(response.data.result);
     });
   }
 });
@@ -1987,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue */ "./node_modules/vue/dist/vue.js");
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.es5.js");
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -1995,9 +1994,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-sweetalert2 */ "./node_modules/vue-sweetalert2/dist/index.js");
 /* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.min.css */ "./node_modules/sweetalert2/dist/sweetalert2.min.css");
 /* harmony import */ var sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_min_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_app_App_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/app/App.vue */ "./resources/js/components/app/App.vue");
-/* harmony import */ var _components_petugas_Petugas_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/petugas/Petugas.vue */ "./resources/js/components/petugas/Petugas.vue");
-/* harmony import */ var _components_dashboard_Dashboard_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/dashboard/Dashboard.vue */ "./resources/js/components/dashboard/Dashboard.vue");
+/* harmony import */ var _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/config/baseUrl.js */ "./resources/js/components/config/baseUrl.js");
+/* harmony import */ var _components_app_App_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/app/App.vue */ "./resources/js/components/app/App.vue");
+/* harmony import */ var _components_petugas_Petugas_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/petugas/Petugas.vue */ "./resources/js/components/petugas/Petugas.vue");
+/* harmony import */ var _components_dashboard_Dashboard_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/dashboard/Dashboard.vue */ "./resources/js/components/dashboard/Dashboard.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -2008,28 +2008,30 @@ window.Vue = (vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default());
 
  // Use Vue, Vuerouter and Axios
 
-vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().use(vue_router__WEBPACK_IMPORTED_MODULE_5__.default);
+
+vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().use(vue_router__WEBPACK_IMPORTED_MODULE_6__.default);
 vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_3__.default);
 vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().use((vue_axios__WEBPACK_IMPORTED_MODULE_1___default()), (axios__WEBPACK_IMPORTED_MODULE_2___default()));
+(vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().prototype.$baseUrl) = _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_5__.baseUri.uri;
 
 
 
 var routes = [{
   name: 'petugas',
   path: '/petugas',
-  component: _components_petugas_Petugas_vue__WEBPACK_IMPORTED_MODULE_7__.default
+  component: _components_petugas_Petugas_vue__WEBPACK_IMPORTED_MODULE_8__.default
 }, {
   name: 'dashboard',
   path: '/',
-  component: _components_dashboard_Dashboard_vue__WEBPACK_IMPORTED_MODULE_8__.default
+  component: _components_dashboard_Dashboard_vue__WEBPACK_IMPORTED_MODULE_9__.default
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
   mode: 'history',
   routes: routes
 });
 var app = new (vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default())(vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().util.extend({
   router: router
-}, _components_app_App_vue__WEBPACK_IMPORTED_MODULE_6__.default)).$mount('#app');
+}, _components_app_App_vue__WEBPACK_IMPORTED_MODULE_7__.default)).$mount('#app');
 
 /***/ }),
 
@@ -2061,6 +2063,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/config/baseUrl.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/config/baseUrl.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "myVar": () => (/* binding */ myVar),
+/* harmony export */   "baseUri": () => (/* binding */ baseUri)
+/* harmony export */ });
+var myVar = 'This is my variable';
+var baseUri = {
+  uri: 'http://127.0.0.1:8000/api/v1/'
+};
 
 /***/ }),
 

@@ -8,11 +8,11 @@ import axios from 'axios';
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
 // Use Vue, Vuerouter and Axios
-
+import { baseUri } from './components/config/baseUrl.js';
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios);
-
+Vue.prototype.$baseUrl = baseUri.uri;
 import App from './components/app/App.vue';
 import PetugasIndex from './components/petugas/Petugas.vue';
 import Dashboard from './components/dashboard/Dashboard.vue';

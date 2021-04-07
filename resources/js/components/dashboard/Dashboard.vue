@@ -74,10 +74,9 @@ export default {
         }
     },
     created() {
-        let uri = "http://127.0.0.1:8000/api/v1/buku";
+        let uri = this.$baseUrl + "buku";
         this.axios.get(uri).then(response => {
             this.books = response.data.result;
-            console.log(response.data.result);
         });
     }
 };
