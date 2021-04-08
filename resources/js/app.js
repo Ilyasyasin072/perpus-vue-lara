@@ -5,20 +5,22 @@ window.Vue = Vue;
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-import VueSweetalert2 from 'vue-sweetalert2'
+import VueSweetalert2 from 'vue-sweetalert2';
+import VueHtml2pdf from 'vue-html2pdf';
 import 'sweetalert2/dist/sweetalert2.min.css';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios);
+Vue.use(VueHtml2pdf);
 Vue.prototype.$baseUrl = baseUri.uri;
 import App from './components/app/App.vue';
-import PetugasIndex from './components/petugas/Petugas.vue';
-import Dashboard from './components/dashboard/Dashboard.vue';
-import Books from './components/buku/Buku.vue';
+import PetugasIndex from './components/petugas/Index.vue';
+import Dashboard from './components/dashboard/Index.vue';
+import Books from './components/buku/Index.vue';
 import BookShow from './components/buku/Show.vue';
-
+import Laporan from './components/report/Laporan.vue';
 const routes = [
     {
         name: 'petugas',
@@ -39,7 +41,12 @@ const routes = [
          name: 'books.show',
          path: '/book/show/:id',
          component: BookShow
-    }
+    },
+    {
+        name: 'report.all',
+        path: '/report/all',
+        component: Laporan
+   }
 ]
 
 
