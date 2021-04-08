@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="stylesheet" href={{ asset('assets/css/bootstrap.css')}}>
     <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <title>Perpustakaan</title>
   </head>
   <body>

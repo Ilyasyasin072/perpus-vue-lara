@@ -43,9 +43,25 @@
                 </div>
             </section>
         </vue-html2pdf>
-        <button @click="generateReport" class="btn btn-sm btn-primary">
-            Download Pdf
-        </button>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Export To PDF</p>
+                        </div>
+                        <div class="card-body">
+                            <button
+                                @click="generateReport"
+                                class="btn btn-sm btn-primary"
+                            >
+                                Export Pdf
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
