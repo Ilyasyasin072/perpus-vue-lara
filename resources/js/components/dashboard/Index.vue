@@ -20,7 +20,7 @@
                             v-for="(books, index) in filterBooks"
                             :key="books.id"
                         >
-                            <div class="card mt-3" style="width: 20rem;">
+                            <div class="card mt-3" style="width: 18rem;">
                                 <div class="card-header">
                                     <label for="">{{ books.judul_buku }}</label>
                                 </div>

@@ -37,19 +37,22 @@
                                         <h5 class="mb-1" v-if="details.buku">
                                             {{ details.buku.judul_buku }}
                                         </h5>
-                                        <small>
+                                        <small v-if="details.buku">
                                             {{ details.buku.penerbit_buku }}
+                                            <p class="mb-1">
+                                                {{ details.buku.penulis_buku }}
+                                            </p>
+                                            <p class="mb-1">
+                                                {{ details.buku.penerbit_buku }}
+                                            </p>
+                                            <p class="mb-1">
+                                                {{
+                                                    details.buku.tahun_penerbit
+                                                }}
+                                            </p>
                                         </small>
+                                    <p v-else>loading.....</p>
                                     </div>
-                                    <p class="mb-1">
-                                        {{ details.buku.penulis_buku }}
-                                    </p>
-                                    <p class="mb-1">
-                                        {{ details.buku.penerbit_buku }}
-                                    </p>
-                                    <p class="mb-1">
-                                        {{ details.buku.tahun_penerbit }}
-                                    </p>
                                     <small>And some small print.</small>
                                 </a>
                             </div>

@@ -1987,6 +1987,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -34261,39 +34264,40 @@ var render = function() {
                             ])
                           : _vm._e(),
                         _vm._v(" "),
-                        _c("small", [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.details.buku.penerbit_buku) +
-                              "\n                                    "
-                          )
-                        ])
+                        _vm.details.buku
+                          ? _c("small", [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(_vm.details.buku.penerbit_buku) +
+                                  "\n                                        "
+                              ),
+                              _c("p", { staticClass: "mb-1" }, [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(_vm.details.buku.penulis_buku) +
+                                    "\n                                        "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "mb-1" }, [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(_vm.details.buku.penerbit_buku) +
+                                    "\n                                        "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "mb-1" }, [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(_vm.details.buku.tahun_penerbit) +
+                                    "\n                                        "
+                                )
+                              ])
+                            ])
+                          : _c("p", [_vm._v("loading.....")])
                       ]
                     ),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mb-1" }, [
-                      _vm._v(
-                        "\n                                    " +
-                          _vm._s(_vm.details.buku.penulis_buku) +
-                          "\n                                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mb-1" }, [
-                      _vm._v(
-                        "\n                                    " +
-                          _vm._s(_vm.details.buku.penerbit_buku) +
-                          "\n                                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mb-1" }, [
-                      _vm._v(
-                        "\n                                    " +
-                          _vm._s(_vm.details.buku.tahun_penerbit) +
-                          "\n                                "
-                      )
-                    ]),
                     _vm._v(" "),
                     _c("small", [_vm._v("And some small print.")])
                   ]
@@ -34368,7 +34372,7 @@ var render = function() {
               return _c("div", { key: books.id, staticClass: "col-sm" }, [
                 _c(
                   "div",
-                  { staticClass: "card mt-3", staticStyle: { width: "20rem" } },
+                  { staticClass: "card mt-3", staticStyle: { width: "18rem" } },
                   [
                     _c("div", { staticClass: "card-header" }, [
                       _c("label", { attrs: { for: "" } }, [
