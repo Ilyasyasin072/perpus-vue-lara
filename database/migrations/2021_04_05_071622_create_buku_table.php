@@ -20,6 +20,7 @@ class CreateBukuTable extends Migration
             $table->string('penulis_buku');
             $table->string('penerbit_buku');
             $table->string('tahun_penerbit');
+            $table->string('img');
             $table->timestamps();
         });
     }

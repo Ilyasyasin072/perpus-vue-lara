@@ -26,7 +26,6 @@ trait BukuTrait {
     }
 
     public function storeTraits($data) {
-
         $buku = new Buku($data);
 
         try {
@@ -48,7 +47,6 @@ trait BukuTrait {
 
     public function updateTraits($id, $data) {
 
-
         $buku = Buku::find($id);
 
         $buku->kode_buku = $data['kode_buku'];
@@ -56,7 +54,6 @@ trait BukuTrait {
         $buku->penulis_buku = $data['penulis_buku'];
         $buku->penulis_buku = $data['penulis_buku'];
         $buku->tahun_penerbit = $data['tahun_penerbit'];
-
         try {
 
             $buku->save();

@@ -17,6 +17,7 @@ import App from './components/app/App.vue';
 import PetugasIndex from './components/petugas/Petugas.vue';
 import Dashboard from './components/dashboard/Dashboard.vue';
 import Books from './components/buku/Buku.vue';
+import BookShow from './components/buku/Show.vue';
 
 const routes = [
     {
@@ -31,8 +32,13 @@ const routes = [
     },
     {
         name: 'books',
-        path: '/books',
+        path: '/book',
         component : Books
+    },
+    {
+         name: 'books.show',
+         path: '/book/show/:id',
+         component: BookShow
     }
 ]
 

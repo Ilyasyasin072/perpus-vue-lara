@@ -6,12 +6,12 @@
                     >Perpustakaan</router-link
                 >
             </a>
+
             <a href="#news" class="nav-menu">
                 <router-link :to="{ name: 'petugas' }" class="navbar-link"
                     >Laporan</router-link
                 ></a
             >
-
 
             <a href="#news" class="nav-menu">
                 <router-link :to="{ name: 'petugas' }" class="navbar-link"
@@ -30,7 +30,6 @@
                     >Pengembalian</router-link
                 ></a
             >
-
 
             <a href="#news" class="nav-menu">
                 <router-link :to="{ name: 'petugas' }" class="navbar-link"
