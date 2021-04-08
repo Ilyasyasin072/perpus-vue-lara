@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 
 use App\Http\Traits\ApiResponser;
 use App\Models\Rak;
+use Illuminate\Http\Request;
 
 trait RakTrait {
 
@@ -54,7 +55,11 @@ trait RakTrait {
 
         try {
 
-            $rak = Rak::with('buku')->where('id', $id)->get();
+            $id_ = $id;
+
+            $rak = Rak::with("buku")->whereHas("buku",function($q) use($id_){
+                $q->where("id","=",$id_);
+            })->get();
 
             return $this->responseSuccess('success', $rak, 200);
 

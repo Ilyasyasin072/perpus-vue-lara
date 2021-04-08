@@ -52,6 +52,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
     Route::group(['prefix' => 'rak'], function () {
         Route::get('/', [RakController::class, 'index'])->name('rak-index');
         Route::post('/store', [RakController::class, 'store'])->name('rak-store');
+        Route::get('/show/{id}', [RakController::class, 'show'])->name('rak-show');
     });
 
     Route::group(['prefix' => 'pengembalian'], function () {

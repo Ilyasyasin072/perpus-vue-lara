@@ -41,8 +41,12 @@
                                             <p class="card-text">
                                                 {{ books.penerbit_buku }}
                                             </p>
-                                                <button class="btn-book" @click = "showById(books.id)">Delete</button>
-                                        </div>
+                                            <button
+                                                class="btn-book btn-sm"
+                                                @click="showById(books.id)"
+                                            >
+                                                Go Book
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -84,9 +88,9 @@ export default {
         });
     },
     methods: {
-        showById : function(id) {
-            console.log(id)
-            this.$router.push({ name: 'books.show', params: { id } })
+        showById: function(id) {
+            console.log(id);
+            this.$router.push({ name: "books.show", params: { id } });
         }
     }
 };

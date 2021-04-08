@@ -1957,20 +1957,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      book: {}
+      details: {}
     };
   },
   created: function created() {
     var _this = this;
 
-    var uri = this.$baseUrl + "buku/show/".concat(this.$route.params.id);
+    var uri = this.$baseUrl + "rak/show/".concat(this.$route.params.id);
     this.axios.get(uri).then(function (response) {
-      console.log(response.data.result);
-      _this.book = response.data.result;
+      _this.details = response.data.result[0];
     });
+  },
+  methods: {
+    backDashboard: function backDashboard(e) {
+      this.$router.push({
+        name: "dashboard"
+      });
+    }
   }
 });
 
@@ -1987,6 +2023,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -2074,7 +2114,7 @@ __webpack_require__.r(__webpack_exports__);
     showById: function showById(id) {
       console.log(id);
       this.$router.push({
-        name: 'books.show',
+        name: "books.show",
         params: {
           id: id
         }
@@ -23923,65 +23963,111 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3" }, [
+  return _c("div", { staticClass: "container mt-3 show_book" }, [
     _c("div", { staticClass: "row" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("img", {
-          attrs: {
-            src:
-              "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png",
-            alt: ""
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "list-group" }, [
-          _c(
-            "a",
-            {
-              staticClass: "list-group-item list-group-item-action active",
-              attrs: { href: "#", "aria-current": "true" }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "d-flex w-100 justify-content-between" },
-                [
-                  _c("h5", { staticClass: "mb-1" }, [
-                    _vm._v(_vm._s(_vm.book.judul_buku))
-                  ]),
-                  _vm._v(" "),
-                  _c("small", [_vm._v("3 days ago")])
-                ]
-              ),
-              _vm._v(" "),
-              _c("p", { staticClass: "mb-1" }, [
-                _vm._v(
-                  "\n                        Some placeholder content in a paragraph.\n                    "
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("div", { staticClass: "pull-left" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn-sm btn btn-show",
+                staticStyle: { "background-color": "#fbb114", color: "white" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.backDashboard()
+                  }
+                }
+              },
+              [_vm._v("Dashboard")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png",
+                  width: "60%",
+                  height: "60%",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("div", { staticClass: "list-group" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "list-group-item list-group-item-action",
+                    attrs: { href: "#", "aria-current": "true" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "d-flex w-100 justify-content-between" },
+                      [
+                        _vm.details.buku
+                          ? _c("h5", { staticClass: "mb-1" }, [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(_vm.details.buku.judul_buku) +
+                                  "\n                                    "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("small", [
+                          _vm._v(
+                            "\n                                        " +
+                              _vm._s(_vm.details.buku.penerbit_buku) +
+                              "\n                                    "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "mb-1" }, [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.details.buku.penulis_buku) +
+                          "\n                                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "mb-1" }, [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.details.buku.penerbit_buku) +
+                          "\n                                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "mb-1" }, [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.details.buku.tahun_penerbit) +
+                          "\n                                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("small", [_vm._v("And some small print.")])
+                  ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("small", [_vm._v("And some small print.")])
-            ]
-          )
+              ])
+            ])
+          ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm" }, [
-      _c("div", { staticClass: "pull-right" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -24083,14 +24169,18 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn-book",
+                              staticClass: "btn-book btn-sm",
                               on: {
                                 click: function($event) {
                                   return _vm.showById(books.id)
                                 }
                               }
                             },
-                            [_vm._v("Delete")]
+                            [
+                              _vm._v(
+                                "\n                                            Go Book\n                                        "
+                              )
+                            ]
                           )
                         ])
                       ])

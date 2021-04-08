@@ -18,4 +18,8 @@ class RakController extends Controller {
         $data = $request->all();
         return $this->storeTraits($data);
     }
+
+    public function show($id) {
+        return $this->showTraits($id);
+    }
 }

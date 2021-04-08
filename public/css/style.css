@@ -42,13 +42,10 @@ body {
     display: none;
 }
 
-
-
 .btn-book {
     background-color: white;
     color: #8d99ae;
 }
-
 
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {
@@ -74,4 +71,9 @@ body {
         display: block;
         text-align: left;
     }
+}
+
+.btn-show:hover {
+    background-color: #fbb114;
+    color: black;
 }
