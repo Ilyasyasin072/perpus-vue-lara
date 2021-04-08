@@ -2204,6 +2204,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "hello",
@@ -34036,7 +34040,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "navbar-link",
-                  attrs: { to: { name: "petugas" } }
+                  attrs: { to: { name: "report.all" } }
                 },
                 [_vm._v("Laporan")]
               )
@@ -34524,7 +34528,19 @@ var render = function() {
                       "table",
                       { staticClass: "table table-bordered table-stripped" },
                       [
-                        _c("thead", [_c("tr", [_c("th")])]),
+                        _c("thead", [
+                          _c("tr", [
+                            _c("th", [_vm._v("Judul Buku")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("Penerbit Buku")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("Penulis Buku")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("Tahun Penerbit")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("Created ")])
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c(
                           "tbody",

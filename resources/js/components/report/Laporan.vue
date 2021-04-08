@@ -25,7 +25,11 @@
                             <table class="table table-bordered table-stripped">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                        <th>Judul Buku</th>
+                                        <th>Penerbit Buku</th>
+                                        <th>Penulis Buku</th>
+                                        <th>Tahun Penerbit</th>
+                                        <th>Created </th>
                                     </tr>
                                 </thead>
                                 <tbody>

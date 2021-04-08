@@ -8,7 +8,7 @@
             </a>
 
             <a href="#news" class="nav-menu">
-                <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                <router-link :to="{ name: 'report.all' }" class="navbar-link"
                     >Laporan</router-link
                 ></a
             >
