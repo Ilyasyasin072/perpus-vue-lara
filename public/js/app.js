@@ -1990,6 +1990,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -34205,104 +34217,130 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3 show_book" }, [
+  return _c("div", { staticClass: "container mt-3" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("div", { staticClass: "pull-left" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn-sm btn btn-show",
-                staticStyle: { "background-color": "#fbb114", color: "white" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.backDashboard()
-                  }
-                }
-              },
-              [_vm._v("Dashboard")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png",
-                  width: "60%",
-                  height: "60%",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("div", { staticClass: "list-group" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "list-group-item list-group-item-action",
-                    attrs: { href: "#", "aria-current": "true" }
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("div", { staticClass: "pull-left" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn-sm btn btn-show",
+                  staticStyle: {
+                    "background-color": "#fbb114",
+                    color: "white"
                   },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "d-flex w-100 justify-content-between" },
-                      [
-                        _vm.details.buku
-                          ? _c("h5", { staticClass: "mb-1" }, [
-                              _vm._v(
-                                "\n                                        " +
-                                  _vm._s(_vm.details.buku.judul_buku) +
-                                  "\n                                    "
-                              )
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.details.buku
-                          ? _c("small", [
-                              _vm._v(
-                                "\n                                        " +
-                                  _vm._s(_vm.details.buku.penerbit_buku) +
-                                  "\n                                        "
-                              ),
-                              _c("p", { staticClass: "mb-1" }, [
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.backDashboard()
+                    }
+                  }
+                },
+                [_vm._v("Dashboard")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "col-sm-6",
+                  staticStyle: { "text-align": "center" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png",
+                      width: "200px",
+                      height: "200px",
+                      alt: ""
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c("div", { staticClass: "list-group" }, [
+                  _vm.details.buku
+                    ? _c(
+                        "a",
+                        {
+                          staticClass:
+                            "list-group-item list-group-item-action flex-column align-items-start",
+                          attrs: { href: "#" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex w-100 justify-content-between"
+                            },
+                            [
+                              _c("h5", { staticClass: "mb-1" }, [
                                 _vm._v(
                                   "\n                                            " +
-                                    _vm._s(_vm.details.buku.penulis_buku) +
+                                    _vm._s(_vm.details.buku.judul_buku) +
                                     "\n                                        "
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("p", { staticClass: "mb-1" }, [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(_vm.details.buku.penerbit_buku) +
-                                    "\n                                        "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "mb-1" }, [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(_vm.details.buku.tahun_penerbit) +
-                                    "\n                                        "
-                                )
+                              _c("small", { staticClass: "text-muted" }, [
+                                _vm._v(_vm._s(_vm.details.buku.penerbit_buku))
                               ])
-                            ])
-                          : _c("p", [_vm._v("loading.....")])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("small", [_vm._v("And some small print.")])
-                  ]
-                )
-              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "mb-1" }, [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.details.buku.penulis_buku) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("small", { staticClass: "text-muted" }, [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.details.buku.tahun_penerbit)
+                            )
+                          ])
+                        ]
+                      )
+                    : _c("a", [_vm._v("Detail tidak ada")])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.details
+                ? _c("div", { staticClass: "col-sm-12" }, [
+                    _c("ul", { staticClass: "list-group" }, [
+                      _c(
+                        "li",
+                        {
+                          staticClass:
+                            "list-group-item d-flex justify-content-between align-items-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    " +
+                              _vm._s(_vm.details.nama_rak) +
+                              "\n                                    "
+                          ),
+                          _c(
+                            "span",
+                            { staticClass: "badge badge-primary badge-pill" },
+                            [_vm._v(_vm._s(_vm.details.lokasi_rak))]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                : _c("div", [_vm._v("Rak Tidak Ada")])
             ])
           ])
         ])
