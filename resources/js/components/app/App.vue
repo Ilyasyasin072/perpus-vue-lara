@@ -12,12 +12,6 @@
                     ><a class="navbar-link" @click="logout">Logout</a></a
                 >
 
-                <a href="" class="nav-menu" v-if="sessionUser"
-                    ><router-link :to="{ name: 'books' }" class="navbar-link">{{
-                        username
-                    }}</router-link></a
-                >
-
                 <a href="#news" class="nav-menu">
                     <router-link
                         :to="{ name: 'report.all' }"
@@ -28,25 +22,25 @@
                 >
 
                 <a href="#news" class="nav-menu">
-                    <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    <router-link :to="{ name: 'bookcase' }" class="navbar-link"
                         >Rak Buku</router-link
                     ></a
                 >
 
                 <a href="#news" class="nav-menu">
-                    <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    <router-link :to="{ name: 'borrowing' }" class="navbar-link"
                         >Peminjaman</router-link
                     ></a
                 >
 
                 <a href="#news" class="nav-menu">
-                    <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    <router-link :to="{ name: 'repayment' }" class="navbar-link"
                         >Pengembalian</router-link
                     ></a
                 >
 
                 <a href="#news" class="nav-menu">
-                    <router-link :to="{ name: 'petugas' }" class="navbar-link"
+                    <router-link :to="{ name: 'employee' }" class="navbar-link"
                         >Petugas</router-link
                     ></a
                 >
@@ -54,6 +48,11 @@
                 <a href="#home" class="nav-menu"
                     ><router-link :to="{ name: 'books' }" class="navbar-link"
                         >Buku</router-link
+                    ></a
+                >
+                <a href="" class="nav-menu"
+                    ><router-link :to="{ name: 'home' }" class="navbar-link"
+                        >Home</router-link
                     ></a
                 >
                 <a
@@ -93,7 +92,7 @@ export default {
     methods: {
         logout() {
             remmoveUserSession();
-            this.$router.push({ name: "dashboard" });
+            this.$router.push({ name: "login" });
         },
         myFunction() {
             var x = document.getElementById("myTopnav");

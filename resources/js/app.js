@@ -20,12 +20,16 @@ Vue.prototype.$baseUrl = baseUri.uri;
 Vue.prototype.$bus = EventBus
 
 import App from './components/app/App.vue';
-import PetugasIndex from './components/petugas/Index.vue';
+import Home from './components/home/Index.vue';
+import Petugas from './components/petugas/Index.vue';
 import Dashboard from './components/dashboard/Index.vue';
 import Books from './components/buku/Index.vue';
 import BookShow from './components/buku/Show.vue';
-import Laporan from './components/report/Laporan.vue';
 import Login from './components/auth/Login.vue';
+import Peminjaman from './components/peminjaman/Index.vue';
+import Pengembalian from './components/pengembalian/Index.vue';
+import Rak from './components/rak/Index.vue';
+import Laporan from './components/report/Laporan.vue';
 
 const routes = [
     {
@@ -34,9 +38,14 @@ const routes = [
         component : Login
     },
     {
-        name: 'petugas',
-        path: '/petugas',
-        component : PetugasIndex
+        name: 'home',
+        path: '/homes',
+        component : Home
+    },
+    {
+        name: 'employee',
+        path: '/employee',
+        component : Petugas
     },
     {
         name: 'dashboard',
@@ -52,6 +61,21 @@ const routes = [
          name: 'books.show',
          path: '/book/show/:id',
          component: BookShow
+    },
+    {
+        name: 'borrowing',
+        path: '/borrowing',
+        component: Peminjaman
+    },
+    {
+        name: 'repayment',
+        path: '/repayment',
+        component: Pengembalian
+    },
+    {
+        name: 'bookcase',
+        path: '/bookcase',
+        component: Rak
     },
     {
         name: 'report.all',

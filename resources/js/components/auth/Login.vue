@@ -5,7 +5,7 @@
             <div class="card-body">
                 <form @submit.prevent="submitLogin">
                     <div class="form-group">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title">Username</label>
                         <input
                             type="text"
                             class="form-control"
@@ -14,14 +14,13 @@
                         />
                     </div>
                     <div class="form-group">
-                        <label htmlFor="content">Content</label>
-                        <textarea
-                            type="text"
+                        <label htmlFor="content">Password</label>
+                        <input
+                            type="password"
                             class="form-control"
                             id="content"
                             v-model="user.password"
-                            rows="5"
-                        ></textarea>
+                       />
                     </div>
                     <button class="btn btn-primary">login</button>
                 </form>
@@ -48,7 +47,7 @@ export default {
         submitLogin: function(e) {
             const uri = this.$baseUrl + "auth/login";
             this.axios.post(uri, this.user).then(response => {
-                this.$router.push({ name: "books" });
+                this.$router.push({ name: "home" });
                 // window.reload();
                 this.$router.go()
                 this.$bus.$emit('logged', 'User logged')
