@@ -8,13 +8,17 @@ import axios from 'axios';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueHtml2pdf from 'vue-html2pdf';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import EventBus from './components/config/EventBus';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios);
 Vue.use(VueHtml2pdf);
+
 Vue.prototype.$baseUrl = baseUri.uri;
+Vue.prototype.$bus = EventBus
+
 import App from './components/app/App.vue';
 import PetugasIndex from './components/petugas/Index.vue';
 import Dashboard from './components/dashboard/Index.vue';

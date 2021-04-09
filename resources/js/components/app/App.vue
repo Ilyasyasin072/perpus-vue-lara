@@ -21,6 +21,7 @@
                 <a href="#news" class="nav-menu">
                     <router-link
                         :to="{ name: 'report.all' }"
+                        v-if="sessionToken"
                         class="navbar-link"
                         >Laporan</router-link
                     ></a
@@ -66,7 +67,7 @@
             <div v-else>
                 <a href="" class="nav-menu"
                     ><router-link :to="{ name: 'login' }" class="navbar-link"
-                        >Buku</router-link
+                        >Login</router-link
                     ></a
                 >
             </div>
@@ -80,17 +81,14 @@ import { token, getUser, remmoveUserSession } from "../config/http-common";
 export default {
     data() {
         return {
-            sessionToken: "",
-            sessionUser: "",
-            username: ""
+            sessionToken: null,
+            sessionUser: null,
         };
     },
     created() {
         this.sessionToken = token();
         this.sessionUser = getUser();
-        if (this.sessionUser != null) {
-            this.username = this.sessionUser[0].name;
-        }
+        this.username = (this.sessionUser != null ?  this.sessionUser[0].name : '' );
     },
     methods: {
         logout() {

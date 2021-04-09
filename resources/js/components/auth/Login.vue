@@ -48,6 +48,10 @@ export default {
         submitLogin: function(e) {
             const uri = this.$baseUrl + "auth/login";
             this.axios.post(uri, this.user).then(response => {
+                this.$router.push({ name: "books" });
+                // window.reload();
+                this.$router.go()
+                this.$bus.$emit('logged', 'User logged')
                 setUserSession(response.data.access_token, response.data.user);
             });
             e.preventDefault();
