@@ -21,7 +21,14 @@ import Dashboard from './components/dashboard/Index.vue';
 import Books from './components/buku/Index.vue';
 import BookShow from './components/buku/Show.vue';
 import Laporan from './components/report/Laporan.vue';
+import Login from './components/auth/Login.vue';
+
 const routes = [
+    {
+        name: 'login',
+        path: '/login',
+        component : Login
+    },
     {
         name: 'petugas',
         path: '/petugas',
