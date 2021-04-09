@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\RakController;
 use App\Http\Controllers\Api\PengembalianController;
 use App\Http\Controllers\Api\PeminjamanController;
 use App\Http\Controllers\Api\LaporanController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,11 +21,16 @@ use App\Http\Controllers\Api\LaporanController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('/register', [AuthController::class, 'register']);
+        Route::post('/login', [AuthController::class, 'login']);
+    });
 
     Route::group(['prefix' => 'anggota'], function () {
         Route::get('/', [AnggotaController::class, 'index'])->name('anggota-index');
@@ -57,7 +63,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
 
     Route::group(['prefix' => 'pengembalian'], function () {
         Route::get('/', [PengembalianController::class, 'index'])->name('pengembalian-index');
-        Route::get('/check/{id}', [PengembalianController::class, 'pinjaman'])->name('laporan-index');
+        Route::get('/check/{id}', [PengembalianController::class, 'pinjaman'])->name('pengembalian-check');
     });
 
     Route::group(['prefix' => 'peminjaman'], function () {
@@ -66,6 +72,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
 
     Route::group(['prefix' => 'laporan'], function () {
         Route::get('/', [LaporanController::class, 'index'])->name('laporan-index');
-
     });
 });

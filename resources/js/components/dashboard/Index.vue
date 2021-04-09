@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm col-md col-sm">
                 <div class="search-wrapper">
                     <form>
                         <label for="">Search Books</label>
@@ -20,11 +20,13 @@
                             v-for="(books, index) in filterBooks"
                             :key="books.id"
                         >
-                            <div class="card mt-3" style="width: 18rem;">
-                                <div class="card-header">
-                                    <label for="">{{ books.judul_buku }}</label>
-                                </div>
+                            <div class="card mt-3">
                                 <div class="card">
+                                    <div class="card-header">
+                                        <label for="">{{
+                                            books.judul_buku
+                                        }}</label>
+                                    </div>
                                     <div class="card-body">
                                         <img
                                             class="card-img-top"

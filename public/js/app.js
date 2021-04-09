@@ -1897,6 +1897,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     myFunction: function myFunction() {
@@ -2038,6 +2070,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -34031,127 +34065,148 @@ var render = function() {
         "div",
         { staticClass: "topnav container-fluid", attrs: { id: "myTopnav" } },
         [
-          _c(
-            "a",
-            { staticClass: "navbar-brand", attrs: { href: "", id: "brand" } },
-            [
+          _c("ul", [
+            _c("li", [
               _c(
-                "router-link",
+                "a",
                 {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "dashboard" } }
+                  staticClass: "navbar-brand",
+                  attrs: { href: "", id: "brand" }
                 },
-                [_vm._v("Perpustakaan")]
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "dashboard" } }
+                    },
+                    [_vm._v("Perpustakaan")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#news" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "report.all" } }
-                },
-                [_vm._v("Laporan")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#news" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "report.all" } }
+                    },
+                    [_vm._v("Laporan")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#news" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "petugas" } }
-                },
-                [_vm._v("Rak Buku")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#news" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "petugas" } }
+                    },
+                    [_vm._v("Rak Buku")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#news" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "petugas" } }
-                },
-                [_vm._v("Peminjaman")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#news" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "petugas" } }
+                    },
+                    [_vm._v("Peminjaman")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#news" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "petugas" } }
-                },
-                [_vm._v("Pengembalian")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#news" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "petugas" } }
+                    },
+                    [_vm._v("Pengembalian")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#news" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "petugas" } }
-                },
-                [_vm._v("Petugas")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#news" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "petugas" } }
+                    },
+                    [_vm._v("Petugas")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "nav-menu", attrs: { href: "#home" } },
-            [
+            ]),
+            _vm._v(" "),
+            _c("li", [
               _c(
-                "router-link",
-                {
-                  staticClass: "navbar-link",
-                  attrs: { to: { name: "books" } }
-                },
-                [_vm._v("Buku")]
+                "a",
+                { staticClass: "nav-menu", attrs: { href: "#home" } },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbar-link",
+                      attrs: { to: { name: "books" } }
+                    },
+                    [_vm._v("Buku")]
+                  )
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "icon",
-              attrs: { href: "javascript:void(0);" },
-              on: { click: _vm.myFunction }
-            },
-            [_c("i", { staticClass: "fa fa-bars" })]
-          )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "icon",
+                  attrs: { href: "javascript:void(0);" },
+                  on: { click: _vm.myFunction }
+                },
+                [_c("i", { staticClass: "fa fa-bars" })]
+              )
+            ])
+          ])
         ]
       ),
       _vm._v(" "),
@@ -34373,7 +34428,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mt-5" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm" }, [
+      _c("div", { staticClass: "col-sm col-md col-sm" }, [
         _c("div", { staticClass: "search-wrapper" }, [
           _c("form", [
             _c("label", { attrs: { for: "" } }, [_vm._v("Search Books")]),
@@ -34408,66 +34463,62 @@ var render = function() {
             { staticClass: "row" },
             _vm._l(_vm.filterBooks, function(books, index) {
               return _c("div", { key: books.id, staticClass: "col-sm" }, [
-                _c(
-                  "div",
-                  { staticClass: "card mt-3", staticStyle: { width: "18rem" } },
-                  [
+                _c("div", { staticClass: "card mt-3" }, [
+                  _c("div", { staticClass: "card" }, [
                     _c("div", { staticClass: "card-header" }, [
                       _c("label", { attrs: { for: "" } }, [
                         _vm._v(_vm._s(books.judul_buku))
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("img", {
+                        staticClass: "card-img-top",
+                        attrs: {
+                          src:
+                            "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
-                        _c("img", {
-                          staticClass: "card-img-top",
-                          attrs: {
-                            src:
-                              "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(
-                              "\n                                            " +
-                                _vm._s(books.judul_buku) +
-                                " -" +
-                                _vm._s(index + 1) +
-                                "\n                                        "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v(
-                              "\n                                            " +
-                                _vm._s(books.penerbit_buku) +
-                                "\n                                        "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn-book btn-sm",
-                              on: {
-                                click: function($event) {
-                                  return _vm.showById(books.id)
-                                }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                            Go Book\n                                        "
-                              )
-                            ]
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(
+                            "\n                                            " +
+                              _vm._s(books.judul_buku) +
+                              " -" +
+                              _vm._s(index + 1) +
+                              "\n                                        "
                           )
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(
+                            "\n                                            " +
+                              _vm._s(books.penerbit_buku) +
+                              "\n                                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-book btn-sm",
+                            on: {
+                              click: function($event) {
+                                return _vm.showById(books.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                            Go Book\n                                        "
+                            )
+                          ]
+                        )
                       ])
                     ])
-                  ]
-                )
+                  ])
+                ])
               ])
             }),
             0
