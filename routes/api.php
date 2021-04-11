@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\PengembalianController;
 use App\Http\Controllers\Api\PeminjamanController;
 use App\Http\Controllers\Api\LaporanController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -72,5 +73,21 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
 
     Route::group(['prefix' => 'laporan'], function () {
         Route::get('/', [LaporanController::class, 'index'])->name('laporan-index');
+    });
+
+    Route::get('storage/{filename}', function ($filename) {
+        $path = storage_path('public/books/' . $filename);
+
+        if (!File::exists($path)) {
+            abort(404);
+        }
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
     });
 });

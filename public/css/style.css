@@ -3,7 +3,29 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.topnav {
+.navbar.top-nav {
+    background-color: #fbb114;
+}
+
+.navbar.top-nav > p {
+    color: black !important;
+}
+
+.nav-link:hover {
+    background-color: #fbb114;
+    color: white;
+}
+
+.navbar {
+    background-color: #2b2d42;   
+}
+
+.btn-content {
+    display: flex;;
+    flex-direction: row;
+}
+
+/* .topnav {
     overflow: hidden;
     background-color: #2b2d42;
 }
@@ -76,4 +98,4 @@ body {
 .btn-show:hover {
     background-color: #fbb114;
     color: black;
-}
+} */

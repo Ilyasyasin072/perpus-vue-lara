@@ -1923,6 +1923,109 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1939,6 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     logout: function logout() {
       (0,_config_http_common__WEBPACK_IMPORTED_MODULE_0__.remmoveUserSession)();
+      this.$router.go();
       this.$router.push({
         name: "login"
       });
@@ -2124,6 +2228,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2136,6 +2246,7 @@ __webpack_require__.r(__webpack_exports__);
     var uri = this.$baseUrl + "rak/show/".concat(this.$route.params.id);
     this.axios.get(uri).then(function (response) {
       _this.details = response.data.result[0];
+      console.log(response.data.result[0]);
     });
   },
   methods: {
@@ -2143,6 +2254,9 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         name: "dashboard"
       });
+    },
+    pinjamBook: function pinjamBook() {
+      alert('pinjam books');
     }
   }
 });
@@ -2160,6 +2274,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2633,7 +2755,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "baseUri": () => (/* binding */ baseUri)
 /* harmony export */ });
 var baseUri = {
-  uri: "http://127.0.0.1:8000/api/v1/"
+  uri: "http://localhost:8000/api/v1/"
 };
 
 /***/ }),
@@ -2712,7 +2834,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-99ca930a],\nh2[data-v-99ca930a] {\n    font-weight: normal;\n}\nul[data-v-99ca930a] {\n    list-style-type: none;\n    padding: 0;\n}\nli[data-v-99ca930a] {\n    display: inline-block;\n    margin: 0 10px;\n}\na[data-v-99ca930a] {\n    color: #7db099;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-99ca930a],\r\nh2[data-v-99ca930a] {\r\n    font-weight: normal;\n}\nul[data-v-99ca930a] {\r\n    list-style-type: none;\r\n    padding: 0;\n}\nli[data-v-99ca930a] {\r\n    display: inline-block;\r\n    margin: 0 10px;\n}\na[data-v-99ca930a] {\r\n    color: #7db099;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34603,186 +34725,429 @@ var render = function() {
     "div",
     { staticClass: "page" },
     [
-      _c(
-        "div",
-        { staticClass: "topnav container-fluid", attrs: { id: "myTopnav" } },
-        [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark" }, [
+        _c("div", { staticClass: "container-fluid" }, [
           _c(
             "a",
-            { staticClass: "navbar-brand", attrs: { href: "", id: "brand" } },
+            { staticClass: "navbar-brand", attrs: { href: "#" } },
             [
               _c(
                 "router-link",
                 {
-                  staticClass: "navbar-link",
+                  staticClass: "text-light",
                   attrs: { to: { name: "dashboard" } }
                 },
-                [_vm._v("Perpustakaan")]
+                [_vm._v("Perspustakaan")]
               )
             ],
             1
           ),
           _vm._v(" "),
-          _vm.sessionToken
-            ? _c("div", [
-                _c("a", { staticClass: "nav-menu", attrs: { href: "" } }, [
-                  _c(
-                    "a",
-                    { staticClass: "navbar-link", on: { click: _vm.logout } },
-                    [_vm._v("Logout")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#news" } },
-                  [
-                    _vm.sessionToken
-                      ? _c(
-                          "router-link",
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarSupportedContent" }
+            },
+            [
+              _vm.sessionToken
+                ? _c(
+                    "ul",
+                    { staticClass: "navbar-nav me-auto mb-2 ml-auto mb-lg-0" },
+                    [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item dropdown" }, [
+                        _c(
+                          "a",
                           {
-                            staticClass: "navbar-link",
-                            attrs: { to: { name: "report.all" } }
+                            staticClass: "nav-link dropdown-toggle",
+                            attrs: {
+                              href: "#",
+                              id: "navbarDropdown",
+                              role: "button",
+                              "data-bs-toggle": "dropdown",
+                              "aria-expanded": "false"
+                            }
                           },
-                          [_vm._v("Laporan")]
+                          [_vm._v("\n               Laporan\n               ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "navbarDropdown" }
+                          },
+                          [
+                            _c(
+                              "li",
+                              [
+                                _vm.sessionToken
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "navbar-link",
+                                        attrs: { to: { name: "report.all" } }
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "dropdown-item",
+                                            attrs: { href: "#" }
+                                          },
+                                          [_vm._v("Laporan Harian")]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _vm._m(7)
+                          ]
                         )
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#news" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "bookcase" } }
-                      },
-                      [_vm._v("Rak Buku")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#news" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "borrowing" } }
-                      },
-                      [_vm._v("Peminjaman")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#news" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "repayment" } }
-                      },
-                      [_vm._v("Pengembalian")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#news" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "employee" } }
-                      },
-                      [_vm._v("Petugas")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "#home" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "books" } }
-                      },
-                      [_vm._v("Buku")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "home" } }
-                      },
-                      [_vm._v("Home")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "icon",
-                    attrs: { href: "javascript:void(0);" },
-                    on: { click: _vm.myFunction }
-                  },
-                  [_c("i", { staticClass: "fa fa-bars" })]
-                )
-              ])
-            : _c("div", [
-                _c(
-                  "a",
-                  { staticClass: "nav-menu", attrs: { href: "" } },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navbar-link",
-                        attrs: { to: { name: "login" } }
-                      },
-                      [_vm._v("Login")]
-                    )
-                  ],
-                  1
-                )
-              ])
-        ]
-      ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "nav-item dropdown" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link dropdown-toggle",
+                            attrs: {
+                              href: "#",
+                              id: "navbarDropdown",
+                              role: "button",
+                              "data-bs-toggle": "dropdown",
+                              "aria-expanded": "false"
+                            }
+                          },
+                          [_vm._v("\n               Account\n               ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          {
+                            staticClass: "dropdown-menu",
+                            attrs: { "aria-labelledby": "navbarDropdown" }
+                          },
+                          [
+                            _vm._m(8),
+                            _vm._v(" "),
+                            _vm._m(9),
+                            _vm._v(" "),
+                            _vm._m(10),
+                            _vm._v(" "),
+                            _c("li", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "dropdown-item",
+                                  attrs: { href: "#" },
+                                  on: { click: _vm.logout }
+                                },
+                                [_vm._v("logout")]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                : _c(
+                    "ul",
+                    {
+                      staticClass: "navbar-nav mb-2 ml-auto mb-lg-0 text-light"
+                    },
+                    [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "nav-item",
+                          staticStyle: { "text-decoration": "none" }
+                        },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "login" } } },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { href: "#", tabindex: "-1" }
+                                },
+                                [_vm._v("Login")]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "text-light",
+                              attrs: { to: { name: "login" } }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { href: "#", tabindex: "-1" }
+                                },
+                                [_vm._v("Register")]
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("router-view")
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { staticClass: "navbar text-light top-nav" }, [
+      _c("p", { staticClass: "text-center m-auto" }, [_vm._v("E-Library")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link active",
+          attrs: { "aria-current": "page", href: "#" }
+        },
+        [_vm._v("Home")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "navbarDropdown",
+            role: "button",
+            "data-bs-toggle": "dropdown",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("\n               Buku\n               ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "navbarDropdown" }
+        },
+        [
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Upload Buku")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("hr", { staticClass: "dropdown-divider" })]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("List Buku")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "navbarDropdown",
+            role: "button",
+            "data-bs-toggle": "dropdown",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("\n               Anggota\n               ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "navbarDropdown" }
+        },
+        [
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Manage Anggota")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("hr", { staticClass: "dropdown-divider" })])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "navbarDropdown",
+            role: "button",
+            "data-bs-toggle": "dropdown",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("\n               Pengembalian\n               ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "navbarDropdown" }
+        },
+        [
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Peminjaman")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("hr", { staticClass: "dropdown-divider" })]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("Pengembalian")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("hr", { staticClass: "dropdown-divider" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Laporan Pertahun")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Profile")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+        _vm._v("Setting")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("hr", { staticClass: "dropdown-divider" })])
+  }
+]
 render._withStripped = true
 
 
@@ -34943,138 +35308,183 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("div", { staticClass: "pull-left" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn-sm btn btn-show",
-                  staticStyle: {
-                    "background-color": "#fbb114",
-                    color: "white"
-                  },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.backDashboard()
-                    }
-                  }
-                },
-                [_vm._v("Dashboard")]
-              )
-            ])
-          ]),
+  return _vm.details.buku
+    ? _c("div", { staticClass: "container mt-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-6",
-                  staticStyle: { "text-align": "center" }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png",
-                      width: "200px",
-                      height: "200px",
-                      alt: ""
-                    }
-                  })
-                ]
-              ),
+          _c("div", { staticClass: "col-sm-12 mt-2" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\n               " +
+                    _vm._s(_vm.details.buku.judul_buku) +
+                    "\n            "
+                )
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c("div", { staticClass: "list-group" }, [
-                  _vm.details.buku
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "list-group-item list-group-item-action flex-column align-items-start",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _c(
-                            "div",
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-sm-6",
+                      staticStyle: { "text-align": "center" }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/books/" + _vm.details.buku.img,
+                          width: "100%",
+                          height: "100%",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c("div", { staticClass: "list-group" }, [
+                      _vm.details.buku
+                        ? _c(
+                            "a",
                             {
                               staticClass:
-                                "d-flex w-100 justify-content-between"
+                                "list-group-item list-group-item-action flex-column align-items-start",
+                              attrs: { href: "#" }
                             },
                             [
-                              _c("h5", { staticClass: "mb-1" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex w-100 justify-content-between"
+                                },
+                                [
+                                  _c("h5", { staticClass: "mb-1" }, [
+                                    _vm._v(
+                                      "\n                                 " +
+                                        _vm._s(_vm.details.buku.judul_buku) +
+                                        "\n                              "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("small", { staticClass: "text-muted" }, [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "badge badge-primary badge-pill"
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.details.buku.penerbit_buku)
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "mb-1" }, [
                                 _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(_vm.details.buku.judul_buku) +
-                                    "\n                                        "
+                                  "\n                              " +
+                                    _vm._s(_vm.details.buku.penulis_buku) +
+                                    "\n                              "
+                                ),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "badge badge-primary badge-pill"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.details.buku.tahun_penerbit)
+                                    )
+                                  ]
                                 )
                               ]),
                               _vm._v(" "),
-                              _c("small", { staticClass: "text-muted" }, [
-                                _vm._v(_vm._s(_vm.details.buku.penerbit_buku))
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("ul", { staticClass: "list-group" }, [
+                                _c(
+                                  "li",
+                                  {
+                                    staticClass:
+                                      "list-group-item d-flex justify-content-between align-items-center"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                 " +
+                                        _vm._s(_vm.details.nama_rak) +
+                                        "\n                                 "
+                                    ),
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "badge badge-primary badge-pill"
+                                      },
+                                      [_vm._v(_vm._s(_vm.details.lokasi_rak))]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "\n                              " +
+                                    _vm._s(_vm.details.buku.desc_buku) +
+                                    "\n                           "
+                                )
                               ])
                             ]
-                          ),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "mb-1" }, [
-                            _vm._v(
-                              "\n                                        " +
-                                _vm._s(_vm.details.buku.penulis_buku) +
-                                "\n                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("small", { staticClass: "text-muted" }, [
-                            _vm._v(
-                              "\n                                        " +
-                                _vm._s(_vm.details.buku.tahun_penerbit)
-                            )
-                          ])
-                        ]
-                      )
-                    : _c("a", [_vm._v("Detail tidak ada")])
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.details
-                ? _c("div", { staticClass: "col-sm-12" }, [
-                    _c("ul", { staticClass: "list-group" }, [
+                          )
+                        : _c("a", [_vm._v("Detail tidak ada")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group mt-2" }, [
                       _c(
-                        "li",
+                        "button",
                         {
-                          staticClass:
-                            "list-group-item d-flex justify-content-between align-items-center"
+                          staticClass: "btn-sm btn-info",
+                          attrs: { width: "100%" },
+                          on: { click: _vm.pinjamBook }
                         },
                         [
                           _vm._v(
-                            "\n                                    " +
-                              _vm._s(_vm.details.nama_rak) +
-                              "\n                                    "
-                          ),
-                          _c(
-                            "span",
-                            { staticClass: "badge badge-primary badge-pill" },
-                            [_vm._v(_vm._s(_vm.details.lokasi_rak))]
+                            "\n                             Pinjam Buku\n                         "
                           )
                         ]
                       )
                     ])
                   ])
-                : _c("div", [_vm._v("Rak Tidak Ada")])
+                ])
+              ])
             ])
           ])
         ])
       ])
-    ])
-  ])
+    : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-12 col-md-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h1", [_vm._v("Template")])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -35097,45 +35507,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-5" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm col-md col-sm" }, [
-        _c("div", { staticClass: "search-wrapper" }, [
-          _c("form", [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Search Books")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.search,
-                  expression: "search"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Cari Buku" },
-              domProps: { value: _vm.search },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+  return _c("div", [
+    _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm col-md col-sm" }, [
+          _c("div", { staticClass: "search-wrapper" }, [
+            _c("form", [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Search Books")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.search,
+                    expression: "search"
                   }
-                  _vm.search = $event.target.value
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Cari Buku" },
+                domProps: { value: _vm.search },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.search = $event.target.value
+                  }
                 }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-default" }, [
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(_vm.filterBooks, function(books, index) {
-              return _c("div", { key: books.id, staticClass: "col-sm" }, [
-                _c("div", { staticClass: "card mt-3" }, [
-                  _c("div", { staticClass: "card" }, [
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-default" }, [
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.filterBooks, function(books, index) {
+                return _c("div", { key: books.id, staticClass: "col-md-3" }, [
+                  _c("div", { staticClass: "card mt-3" }, [
                     _c("div", { staticClass: "card-header" }, [
                       _c("label", { attrs: { for: "" } }, [
                         _vm._v(_vm._s(books.judul_buku))
@@ -35143,37 +35553,42 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
-                      _c("img", {
-                        staticClass: "card-img-top",
-                        attrs: {
-                          src:
-                            "https://cdn.pixabay.com/photo/2016/09/16/09/20/books-1673578_1280.png"
-                        }
-                      }),
+                      "" + books.img
+                        ? _c("div", [
+                            _c("img", {
+                              staticClass: "card-img-top img-fluid",
+                              attrs: { src: "/books/" + books.img }
+                            })
+                          ])
+                        : _c("div", [
+                            _c("img", {
+                              staticClass: "card-img-top img-fluid",
+                              attrs: {
+                                src:
+                                  "http://www.kulinerindonesia.id/assets/img/default_image.jpg"
+                              }
+                            })
+                          ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v(
-                            "\n                                            " +
-                              _vm._s(books.judul_buku) +
-                              " -" +
-                              _vm._s(index + 1) +
-                              "\n                                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                                            " +
-                              _vm._s(books.penerbit_buku) +
-                              "\n                                        "
-                          )
-                        ]),
-                        _vm._v(" "),
+                      _c("legend", { staticClass: "mt-2" }, [
+                        _c("fieldset", [
+                          _c("p", [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(books.judul_buku) +
+                                " -" +
+                                _vm._s(index + 1) +
+                                "\n                                 "
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "btn-content mt-2" }, [
                         _c(
                           "button",
                           {
-                            staticClass: "btn-book btn-sm",
+                            staticClass: "btn btn-warning btn-sm w-100",
                             on: {
                               click: function($event) {
                                 return _vm.showById(books.id)
@@ -35182,7 +35597,20 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                                            Go Book\n                                        "
+                              "\n                              Detail\n                              "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-sm w-100 ml-2 text-light",
+                            staticStyle: { "background-color": "#2b2d42" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                              Pinjam Buku\n                              "
                             )
                           ]
                         )
@@ -35190,10 +35618,10 @@ var render = function() {
                     ])
                   ])
                 ])
-              ])
-            }),
-            0
-          )
+              }),
+              0
+            )
+          ])
         ])
       ])
     ])
@@ -35228,7 +35656,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron" }, [
         _c("h1", { staticClass: "display-4" }, [
-          _vm._v("Hello, " + _vm._s(_vm.users.username) + "!")
+          _vm._v("Hello, " + _vm._s(_vm.users.email) + "!")
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "lead" }, [

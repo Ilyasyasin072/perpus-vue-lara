@@ -18,11 +18,11 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $user = User::where('email', 'example1@gmail.com')->get();
+        $user = User::where('email', $credentials['email'])->get();
         return $this->respondWithToken($token, $user);
     }
 
@@ -37,16 +37,16 @@ class AuthController extends Controller
 
         // var_dump($validator); die;
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json($validator->errors()->toJson(), 400);
         }
 
         $user = User::create(array_merge(
             $validator->validated(),
             ['password' => bcrypt($request->password)]
-         ));
+        ));
 
-         return response()->json([
+        return response()->json([
             'message' => 'User successfully registered',
             'user' => $user
         ]);
@@ -57,7 +57,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' =>auth('api')->factory()->getTTL() * 60,
+            'expires_in' => auth('api')->factory()->getTTL() * 60,
             'user' => $user,
         ]);
     }
