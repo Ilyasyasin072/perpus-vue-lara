@@ -32,6 +32,7 @@ import Peminjaman from './components/peminjaman/Index.vue';
 import Pengembalian from './components/pengembalian/Index.vue';
 import Rak from './components/rak/Index.vue';
 import Laporan from './components/report/Laporan.vue';
+import CreateBuku from './components/buku/create.vue';
 
 const routes = [
     {
@@ -58,6 +59,10 @@ const routes = [
         name: 'books',
         path: '/book',
         component : Books
+    },{
+        name: 'books.create',
+        path: '/book/create',
+        component : CreateBuku
     },
     {
          name: 'books.show',
