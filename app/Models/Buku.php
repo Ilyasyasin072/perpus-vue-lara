@@ -21,18 +21,19 @@ class Buku extends Model
         'penerbit_buku',
         'tahun_penerbit',
         'images',
+        'desc_buku',
     ];
 
     protected $rules = [
         'kode_buku' => 'required|kode_buku:buku',
     ];
 
-    protected $appends = ['images'];
+    // protected $appends = ['images'];
 
-    public function getImagesAttribute() {
+    // public function getImagesAttribute() {
 
-        return storage_path('app/books/' .$this->filename);
-    }
+    //     return storage_path('app/books/' .$this->attributes['images']);
+    // }
 
     public function scopeJsonBuku($query) {
         return $query->select('*')->get();

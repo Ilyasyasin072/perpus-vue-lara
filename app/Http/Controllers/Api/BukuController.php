@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\BukuTrait;
 use Illuminate\Http\Request;
 use App\Models\Buku;
+use App\Models\Rak;
 
 class BukuController extends Controller
 {
@@ -19,32 +20,48 @@ class BukuController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->hasFile('file')) {
+        try {
+            if ($request->hasFile('file')) {
 
-            $request->validate([
-                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-            ]);
+                $request->validate([
+                    'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+                ]);
 
-            $request->file->store('books', 'public');
+                $request->file->store('books', 'public');
 
-            $path = $request->file->hashName();
+                $path = $request->file->hashName();
 
-            $buku = new Buku();
+                $buku = new Buku();
 
-            $buku->kode_buku = $request->kode_buku;
-            $buku->judul_buku = $request->judul_buku;
-            $buku->penulis_buku =  $request->penulis_buku;
-            $buku->penerbit_buku =  $request->penerbit_buku;
-            $buku->tahun_penerbit =  $request->tahun_penerbit;
-            $buku->img =  $path;
+                $buku->kode_buku = $request->kode_buku;
+                $buku->judul_buku = $request->judul_buku;
+                $buku->penulis_buku =  $request->penulis_buku;
+                $buku->penerbit_buku =  $request->penerbit_buku;
+                $buku->tahun_penerbit =  $request->tahun_penerbit;
+                $buku->desc_buku =  $request->desc;
+                $buku->images = $path;
 
-            $buku->save();
+                $buku->save();
 
-            return response()->json($buku);
+                $rak = new Rak();
 
-            // var_dump($request->file->hashName()); die;
+                $rak->nama_rak = $request->nama_rak;
 
-            // return $this->storeTraits($request->all(), $path);
+                $rak->lokasi_rak = $request->lokasi_rak;
+
+                $rak->id_buku = $buku->id;
+
+                $rak->save();
+
+                return response()->json($buku);
+
+                // var_dump($request->file->hashName()); die;
+
+                // return $this->storeTraits($request->all(), $path);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json($th->getMessage());
         }
     }
 

@@ -13,6 +13,8 @@ trait BukuTrait {
         try {
             $buku = Buku::JsonBuku();
 
+            // dd($buku);
+
             return $this->responseSuccess('success', $buku, 200);
 
         } catch (\Throwable $th) {

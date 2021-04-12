@@ -15,14 +15,22 @@
                </div>
                <div class="card-body">
                   <div class="row">
-                     <div class="col-sm-6" style="text-align: center;">
+                     <div class="col-sm-6" style="text-align: center;" v-if="details.buku.images">
                         <img
-                           :src="`/books/${details.buku.img}`"
+                           :src="`/books/${details.buku.images}`"
                            width="100%"
                            height="100%"
                            alt=""
                            />
                      </div>
+                     <div v-else>
+                                  <img
+                                 class="card-img-top img-fluid"
+                                 :src="`http://www.kulinerindonesia.id/assets/img/default_image.jpg`"
+                                  width="100%"
+                           height="100%"
+                                 />
+                              </div>
                      <div class="col-sm-6">
                         <div class="list-group">
                            <a
