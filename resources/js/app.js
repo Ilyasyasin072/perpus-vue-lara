@@ -9,12 +9,14 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import VueHtml2pdf from 'vue-html2pdf';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import EventBus from './components/config/EventBus';
+import Carousel3d from 'vue-carousel-3d';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios);
 Vue.use(VueHtml2pdf);
+Vue.use(Carousel3d);
 
 Vue.prototype.$baseUrl = baseUri.uri;
 Vue.prototype.$bus = EventBus
