@@ -23,11 +23,11 @@
                    Buku
                    </a>
                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Upload Buku</a></li>
+                      <li><router-link :to="{ name: 'books.create' }"><a class="dropdown-item" href="#" tabindex="-1" >Upload Book</a></router-link></li>
                       <li>
                          <hr class="dropdown-divider">
                       </li>
-                      
+
                       <li><a class="dropdown-item" href="#">List Buku</a></li>
                    </ul>
                 </li>
@@ -51,7 +51,7 @@
                       <li>
                          <hr class="dropdown-divider">
                       </li>
-                      
+
                       <li><a class="dropdown-item" href="#">Pengembalian</a></li>
                    </ul>
                 </li>
@@ -69,7 +69,7 @@
                       <li>
                          <hr class="dropdown-divider">
                       </li>
-                      
+
                       <li><a class="dropdown-item" href="#">Laporan Pertahun</a></li>
                    </ul>
                 </li>

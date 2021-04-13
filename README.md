@@ -1,4 +1,6 @@
-## Rest Api Laravel Perpus
+## Perpus Application
+
+Vue js & Laravel 8
 
 ## Result 
 

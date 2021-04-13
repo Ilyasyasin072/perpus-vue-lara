@@ -22,6 +22,7 @@ class Buku extends Model
         'tahun_penerbit',
         'images',
         'desc_buku',
+        'stock',
     ];
 
     protected $rules = [

@@ -10,16 +10,24 @@ import VueHtml2pdf from 'vue-html2pdf';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import EventBus from './components/config/EventBus';
 import Carousel3d from 'vue-carousel-3d';
+import UniqueId from 'vue-unique-id';
+import Vuex from 'vuex';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
+import store from './components/config/store';
+
+Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(VueAxios, axios);
 Vue.use(VueHtml2pdf);
 Vue.use(Carousel3d);
+Vue.use(UniqueId);
 
 Vue.prototype.$baseUrl = baseUri.uri;
 Vue.prototype.$bus = EventBus
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import App from './components/app/App.vue';
 import Home from './components/home/Index.vue';
@@ -94,6 +102,6 @@ const routes = [
 
 const router = new VueRouter({
     mode: 'history',
-    routes: routes
+    routes: routes,
 })
-const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const app = new Vue(Vue.util.extend({ router , store }, App)).$mount('#app');

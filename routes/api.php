@@ -11,6 +11,9 @@ use App\Http\Controllers\Api\PeminjamanController;
 use App\Http\Controllers\Api\LaporanController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Storage;
+use Validator;
+use Carbon\Carbon;
+use Image;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +28,11 @@ use Illuminate\Support\Facades\Storage;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+header('Access-Control-Allow-Origin: *');
+// header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+header( 'Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods:*');
 
 Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
 
@@ -75,19 +83,4 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
         Route::get('/', [LaporanController::class, 'index'])->name('laporan-index');
     });
 
-    Route::get('storage/{filename}', function ($filename) {
-        $path = storage_path('public/books/' . $filename);
-
-        if (!File::exists($path)) {
-            abort(404);
-        }
-
-        $file = File::get($path);
-        $type = File::mimeType($path);
-
-        $response = Response::make($file, 200);
-        $response->header("Content-Type", $type);
-
-        return $response;
-    });
 });
