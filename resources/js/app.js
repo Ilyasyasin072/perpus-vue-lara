@@ -18,6 +18,9 @@ import store from './components/config/store';
 import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
 
+import VModal from 'vue-js-modal'
+import 'vue-js-modal/dist/styles.css'
+
 Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
@@ -26,6 +29,7 @@ Vue.use(VueHtml2pdf);
 Vue.use(Carousel3d);
 Vue.use(UniqueId);
 Vue.use(VueGoodTablePlugin);
+Vue.use(VModal)
 
 Vue.prototype.$baseUrl = baseUri.uri;
 Vue.prototype.$bus = EventBus

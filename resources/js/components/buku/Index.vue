@@ -24,6 +24,7 @@
                                 enabled: true
                             }"
                             theme="polar-bear"
+                            @on-row-click="onRowClick"
                             :pagination-options="{
                                 enabled: true,
                                 mode: 'records',
@@ -46,6 +47,7 @@
                 </div>
             </div>
         </div>
+         <modal name="example">This is an example</modal>
     </div>
 </template>
 
@@ -68,7 +70,7 @@ export default {
                 {
                     label: "Age",
                     field: "penerbit_buku",
-                    type: "number",
+                    type: "number"
                 },
                 {
                     label: "Age",
@@ -108,6 +110,15 @@ export default {
                 this.books = response.data.result;
                 this.rows = response.data.result;
             });
+        },
+        onRowClick(params) {
+            console.log(params.row.kode_buku);
+            this.$modal.show('example')
+            // params.row - row object
+            // params.pageIndex - index of this row on the current page.
+            // params.selected - if selection is enabled this argument
+            // indicates selected or not
+            // params.event - click event
         }
     }
 };
