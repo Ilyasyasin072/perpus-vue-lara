@@ -2201,6 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2208,7 +2209,15 @@ __webpack_require__.r(__webpack_exports__);
       books: [],
       columns: [{
         label: "Name",
-        field: "kode_buku"
+        field: "kode_buku",
+        filterOptions: {
+          styleClass: "class1",
+          // class to be added to the parent th element
+          enabled: true,
+          // enable filter for this column
+          trigger: "enter" //only trigger on enter not on keyup
+
+        }
       }, {
         label: "Age",
         field: "penerbit_buku",
@@ -50595,12 +50604,13 @@ var render = function() {
                   "search-options": {
                     enabled: true
                   },
+                  theme: "polar-bear",
                   "pagination-options": {
                     enabled: true,
                     mode: "records",
-                    perPage: 5,
+                    perPage: 10,
                     position: "bottom",
-                    perPageDropdown: [3, 7, 9],
+                    perPageDropdown: [5, 10, 15, 20],
                     dropdownAllowAll: true,
                     setCurrentPage: 2,
                     nextLabel: "next",
