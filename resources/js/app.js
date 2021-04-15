@@ -15,6 +15,8 @@ import Vuex from 'vuex';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
 import store from './components/config/store';
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
@@ -23,6 +25,7 @@ Vue.use(VueAxios, axios);
 Vue.use(VueHtml2pdf);
 Vue.use(Carousel3d);
 Vue.use(UniqueId);
+Vue.use(VueGoodTablePlugin);
 
 Vue.prototype.$baseUrl = baseUri.uri;
 Vue.prototype.$bus = EventBus
@@ -46,36 +49,36 @@ const routes = [
     {
         name: 'login',
         path: '/login',
-        component : Login
+        component: Login
     },
     {
         name: 'home',
         path: '/homes',
-        component : Home
+        component: Home
     },
     {
         name: 'employee',
         path: '/employee',
-        component : Petugas
+        component: Petugas
     },
     {
         name: 'dashboard',
         path: '/',
-        component : Dashboard
+        component: Dashboard
     },
     {
         name: 'books',
         path: '/book',
-        component : Books
-    },{
+        component: Books
+    }, {
         name: 'books.create',
         path: '/book/create',
-        component : CreateBuku
+        component: CreateBuku
     },
     {
-         name: 'books.show',
-         path: '/book/show/:id',
-         component: BookShow
+        name: 'books.show',
+        path: '/book/show/:id',
+        component: BookShow
     },
     {
         name: 'borrowing',
@@ -96,7 +99,8 @@ const routes = [
         name: 'report.all',
         path: '/report/all',
         component: Laporan
-   }
+    },
+    { path: '*', redirect: '/' }
 ]
 
 
@@ -104,4 +108,4 @@ const router = new VueRouter({
     mode: 'history',
     routes: routes,
 })
-const app = new Vue(Vue.util.extend({ router , store }, App)).$mount('#app');
+const app = new Vue(Vue.util.extend({ router, store }, App)).$mount('#app');

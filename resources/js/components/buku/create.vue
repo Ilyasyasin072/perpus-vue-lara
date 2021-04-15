@@ -1,7 +1,7 @@
 
 
 <template>
-   <div class="container mt-3">
+   <div class="container mt-5">
       <div class="row">
          <h1>Tambah Buku</h1>
       </div>
@@ -12,9 +12,9 @@
          </ul>
          </p>
          <div class="form-row">
-             <img v-bind:src="`${images}`" />
            <input type="file" class="form-control" id="customFile"
-                        ref="file" @change="handleFileObject()">     {{ imagesName }}    </div>
+                        ref="file" @change="handleFileObject()">     {{ imagesName }}
+         </div>
          <div class="form-row mt-2">
             <div class="form-group col-md-6">
                <label for="inputEmail4">Kode Buku</label>
@@ -114,29 +114,14 @@
         _.each(this.formData, (value, key) => {
           formData.append(key, value)
         })
-
                 let uri = this.$baseUrl + `buku/store`;
-            //     console.log(uri)
-            //      const data = {
-            //      'kode_buku' : this.kode_buku,
-            //      'judul_buku' : this.judul_buku,
-            //      'penulis_buku' : this.penulis_buku,
-            //      'penerbit_buku' : this.penerbit_buku,
-            //      'tahun_penerbit' : this.tahun_penerbit,
-            //     //  'file' : this.images,
-            //      'desc'  : this.desc_buku,
-            //      'nama_rak' : this.nama_rak,
-            //      'lokasi_rak' : this.lokasi_rak,
-            //      'stock' : this.stock
-            //  }
-
                 this.axios.post(uri, formData, {
              headers: {
                   'Content-Type': 'multipart/form-data'
                 }
           }).then((result) => {
                     console.log(result);
-                    // this.$router.push({name: 'book'})
+                    this.$router.push({name: 'dashboard'})
                 }).catch((err) => {
                    if (err.response.status === 422) {
                     this.errors = []
@@ -150,58 +135,41 @@
                 })
             //  }
 
-             this.errors = [];
+            //  this.errors = [];
 
-             if (!this.kode_buku) {
-                  this.errors.push('Name required.');
-             }
-             if (!this.judul_buku) {
-                  this.errors.push('Judul Buku required.');
-             }
+            //  if (!this.kode_buku) {
+            //       this.errors.push('Name required.');
+            //  }
+            //  if (!this.judul_buku) {
+            //       this.errors.push('Judul Buku required.');
+            //  }
 
-             if (!this.penulis_buku) {
-                  this.errors.push('penulis_buku Buku required.');
-             }
+            //  if (!this.penulis_buku) {
+            //       this.errors.push('penulis_buku Buku required.');
+            //  }
 
-             if (!this.penerbit_buku) {
-                  this.errors.push('penerbit_buku Buku required.');
-             }
+            //  if (!this.penerbit_buku) {
+            //       this.errors.push('penerbit_buku Buku required.');
+            //  }
 
-             if (!this.tahun_penerbit) {
-                  this.errors.push('tahun_penerbit Buku required.');
-             }
+            //  if (!this.tahun_penerbit) {
+            //       this.errors.push('tahun_penerbit Buku required.');
+            //  }
 
-             if (!this.images) {
-                  this.errors.push('images Buku required.');
-             }
+            //  if (!this.images) {
+            //       this.errors.push('images Buku required.');
+            //  }
 
-             if (!this.nama_rak) {
-                  this.errors.push('nama_rak Buku required.');
-             }
+            //  if (!this.nama_rak) {
+            //       this.errors.push('nama_rak Buku required.');
+            //  }
 
-             if (!this.lokasi_rak) {
-                  this.errors.push('lokasi_rak Buku required.');
-             }
+            //  if (!this.lokasi_rak) {
+            //       this.errors.push('lokasi_rak Buku required.');
+            //  }
 
              e.preventDefault();
          },
-            handleImages(files){
-                this.images = files;
-                 this.imagesName = this.images.name
-                /*
-                [
-                    {
-                        "name": "Screenshot from 2021-02-23 12-36-33.png",
-                        "size": 319775,
-                        "type": "image/png",
-                        "lastModified": 1614080193596
-                        ...
-                    },
-                    ...
-                    ]
-                */
-            },
-
              handleFileObject() {
                 this.images = this.$refs.file.files[0]
                 this.imagesName = this.images.name

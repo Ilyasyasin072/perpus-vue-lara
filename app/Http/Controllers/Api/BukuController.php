@@ -24,14 +24,17 @@ class BukuController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'images' => 'required' // Only allow .jpg, .bmp and .png file types.
-        ]);
+        // $request->validate([
+        //     'images' => 'required' // Only allow .jpg, .bmp and .png file types.
+        // ]);
 
         try {
+
             $file =  $request->file('images');
             $name = '/books/' . uniqid() . '.' . $file->extension();
             $file->storePubliclyAs('public', $name);
+
+            // var_dump($request->hasFile('images')); die;
 
             $buku = new Buku();
 
@@ -61,45 +64,45 @@ class BukuController extends Controller
             //throw $th;
         }
         // try {
-        //     if ($request->hasFile('file')) {
+            // if ($request->hasFile('images')) {
 
-                // $request->validate([
-                //     'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-                // ]);
+            //     $request->validate([
+            //         'images' => 'mimes:jpeg,bmp,png,jpg' // Only allow .jpg, .bmp and .png file types.
+            //     ]);
 
-        //         $request->file->store('books', 'public');
+            //     $request->file->store('books', 'public');
 
-        //         $path = $request->file->hashName();
+            //     $path = $request->file->hashName();
 
-        //         $buku = new Buku();
+            //     $buku = new Buku();
 
-        //         $buku->kode_buku = $request->kode_buku;
-        //         $buku->judul_buku = $request->judul_buku;
-        //         $buku->penulis_buku =  $request->penulis_buku;
-        //         $buku->penerbit_buku =  $request->penerbit_buku;
-        //         $buku->tahun_penerbit =  $request->tahun_penerbit;
-        //         $buku->desc_buku =  $request->desc;
-        //         $buku->images = $path;
-        //         $buku->stock = $request->stock;
+            //     $buku->kode_buku = $request->kode_buku;
+            //     $buku->judul_buku = $request->judul_buku;
+            //     $buku->penulis_buku =  $request->penulis_buku;
+            //     $buku->penerbit_buku =  $request->penerbit_buku;
+            //     $buku->tahun_penerbit =  $request->tahun_penerbit;
+            //     $buku->desc_buku =  $request->desc;
+            //     $buku->images = $path;
+            //     $buku->stock = $request->stock;
 
-        //         $buku->save();
+            //     $buku->save();
 
-        //         $rak = new Rak();
+            //     $rak = new Rak();
 
-        //         $rak->nama_rak = $request->nama_rak;
+            //     $rak->nama_rak = $request->nama_rak;
 
-        //         $rak->lokasi_rak = $request->lokasi_rak;
+            //     $rak->lokasi_rak = $request->lokasi_rak;
 
-        //         $rak->id_buku = $buku->id;
+            //     $rak->id_buku = $buku->id;
 
-        //         $rak->save();
+            //     $rak->save();
 
-        //         return response()->json($buku);
+            //     return response()->json($buku);
 
-        //         // var_dump($request->file->hashName()); die;
+                // var_dump($request->file->hashName()); die;
 
-        //         // return $this->storeTraits($request->all(), $path);
-        //     }
+                // return $this->storeTraits($request->all(), $path);
+            // }
         // } catch (\Throwable $th) {
         //     //throw $th;
         //     return response()->json($th->getMessage());

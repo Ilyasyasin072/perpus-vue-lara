@@ -28,7 +28,7 @@
                          <hr class="dropdown-divider">
                       </li>
 
-                      <li><a class="dropdown-item" href="#">List Buku</a></li>
+                      <li><router-link :to="{ name: 'books' }"><a class="dropdown-item" href="#" tabindex="-1" >List Book</a></router-link></li>
                    </ul>
                 </li>
                 <li class="nav-item dropdown">

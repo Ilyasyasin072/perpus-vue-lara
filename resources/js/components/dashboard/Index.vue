@@ -11,7 +11,7 @@
                     <figure>
                         <img
                             class="card-img-top img-fluid"
-                            :src="`/books/${book.images}`"
+                            :src="`${book.images}`"
                             v-if="book.images"
                         />
                         <img
@@ -22,9 +22,9 @@
                             "
                         />
                         <figcaption>
-                          <h2>{{ book.judul_buku }}</h2>
-                          <hr>
-                          <h4>{{ book.tahun_penerbit }}</h4>
+                            <h2>{{ book.judul_buku }}</h2>
+                            <hr />
+                            <h4>{{ book.tahun_penerbit }}</h4>
                         </figcaption>
                     </figure>
                 </slide>
@@ -116,7 +116,7 @@
                                         <div v-if="`${books.images}`">
                                             <img
                                                 class="card-img-top img-fluid"
-                                                :src="`/books/${books.images}`"
+                                                :src="`${books.images}`"
                                             />
                                         </div>
                                         <div v-else>
@@ -193,31 +193,71 @@ export default {
             var self = this;
             return this.books.filter(book => {
                 if (self.search) {
-                    return (
-                        book.judul_buku.toLowerCase().indexOf(self.search) >= 0
-                        //    || book.penerbit_buku.indexOf(self.search) >= 0
-                    );
+                    if (self.search == self.search.toLowerCase()) {
+                        return (
+                            book.judul_buku
+                                .toLowerCase()
+                                .indexOf(self.search) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    } else {
+                        return (
+                            book.judul_buku
+                                .toUpperCase()
+                                .indexOf(self.search) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    }
                 } else if (self.penerbit) {
-                    return (
-                        book.penerbit_buku
-                            .toLowerCase()
-                            .indexOf(self.penerbit) >= 0
-                        //    || book.penerbit_buku.indexOf(self.search) >= 0
-                    );
+                    if (self.penerbit == self.penerbit.toLowerCase) {
+                        return (
+                            book.penerbit_buku
+                                .toLowerCase()
+                                .indexOf(self.penerbit) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    } else {
+                        return (
+                            book.penerbit_buku
+                                .toUpperCase()
+                                .indexOf(self.penerbit) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    }
                 } else if (self.penulis_buku) {
-                    return (
-                        book.penulis_buku
-                            .toLowerCase()
-                            .indexOf(self.penulis_buku) >= 0
-                        //    || book.penerbit_buku.indexOf(self.search) >= 0
-                    );
+                    if (self.penulis_buku == self.penulis_buku.toLowerCase()) {
+                        return (
+                            book.penulis_buku
+                                .toLowerCase()
+                                .indexOf(self.penulis_buku) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    } else {
+                        return (
+                            book.penulis_buku
+                                .toLowerCase()
+                                .indexOf(self.penulis_buku) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    }
                 } else {
-                    return (
-                        book.tahun_penerbit
-                            .toLowerCase()
-                            .indexOf(self.tahun_penerbit) >= 0
-                        //    || book.penerbit_buku.indexOf(self.search) >= 0
-                    );
+                    if (
+                        self.tahun_penerbit == self.tahun_penerbit.toLowerCase()
+                    ) {
+                           return (
+                            book.tahun_penerbit
+                                .toLowerCase()
+                                .indexOf(self.tahun_penerbit) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    } else {
+                        return (
+                            book.tahun_penerbit
+                                .toUpperCase()
+                                .indexOf(self.tahun_penerbit) >= 0
+                            //    || book.penerbit_buku.indexOf(self.search) >= 0
+                        );
+                    }
                 }
             });
         }
