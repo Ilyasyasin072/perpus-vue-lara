@@ -2204,6 +2204,110 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2238,7 +2342,18 @@ __webpack_require__.r(__webpack_exports__);
         label: "Percent",
         field: "tahun_penerbit"
       }],
-      rows: []
+      rows: [],
+      showId: {
+        id_: null,
+        kode_buku: null,
+        judul_buku: null,
+        penerbit_buku: null,
+        penulis_buku: null,
+        stock: null,
+        tahun_penerbit: null,
+        images: null,
+        desc_buku: null
+      }
     };
   },
   components: {
@@ -2259,12 +2374,37 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     onRowClick: function onRowClick(params) {
-      console.log(params.row.kode_buku);
-      this.$modal.show('example'); // params.row - row object
-      // params.pageIndex - index of this row on the current page.
-      // params.selected - if selection is enabled this argument
-      // indicates selected or not
-      // params.event - click event
+      this.$modal.show("show_modal");
+      this.showId.kode_buku = params.row.kode_buku;
+      this.showId.judul_buku = params.row.judul_buku;
+      this.showId.penerbit_buku = params.row.penerbit_buku;
+      this.showId.penulis_buku = params.row.penulis_buku;
+      this.showId.stock = params.row.stock;
+      this.showId.tahun_penerbit = params.row.tahun_penerbit;
+      this.showId.images = params.row.images;
+      this.showId.desc_buku = params.row.desc_buku;
+      this.showId.id_ = params.row.id;
+    },
+    updateBook: function updateBook() {
+      if (confirm("Do you really want to update ?")) {
+        this.$modal.hide("show_modal");
+        var formData = {
+          kode_buku: this.showId.kode_buku,
+          judul_buku: this.showId.judul_buku,
+          penerbit_buku: this.showId.penerbit_buku,
+          penulis_buku: this.showId.penulis_buku,
+          stock: this.showId.stock,
+          tahun_penerbit: this.showId.tahun_penerbit,
+          // images: this.showId.images,
+          desc_buku: this.showId.desc_buku
+        };
+        var uri = this.$baseUrl + "buku";
+        this.axios.put(uri + '/update/' + this.showId.id_, formData).then(function (res) {
+          console.log(res);
+        });
+      }
+
+      return false;
     }
   }
 });
@@ -3288,20 +3428,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setUserSession": () => (/* binding */ setUserSession)
 /* harmony export */ });
 var getUser = function getUser() {
-  var userStr = sessionStorage.getItem('getuser');
+  var userStr = localStorage.getItem('getuser');
   if (userStr) return JSON.parse(userStr);else return null;
 };
 var token = function token() {
-  return sessionStorage.getItem('token') || null;
+  return localStorage.getItem('token') || null;
 };
 var remmoveUserSession = function remmoveUserSession() {
-  sessionStorage.removeItem('token');
-  sessionStorage.removeItem('getuser');
+  localStorage.removeItem('token');
+  localStorage.removeItem('getuser');
 };
 var setUserSession = function setUserSession(token, users) {
   // console.log(token, users);
-  sessionStorage.setItem('token', token);
-  sessionStorage.setItem('getuser', JSON.stringify(users));
+  localStorage.setItem('token', token);
+  localStorage.setItem('getuser', JSON.stringify(users));
 };
 
 /***/ }),
@@ -50617,7 +50757,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container mt-5" },
+    { staticClass: "container-fluid mt-5" },
     [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-sm" }, [
@@ -50688,8 +50828,291 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("modal", { attrs: { name: "example" } }, [
-        _vm._v("This is an example")
+      _c("modal", { attrs: { name: "show_modal", width: 700, height: 1000 } }, [
+        _c("div", { staticClass: "container mt-3" }, [
+          _c("div", { staticClass: "list-group" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "list-group-item list-group-item-action flex-column align-items-start active",
+                attrs: { href: "#" }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex w-100 justify-content-between" },
+                  [
+                    _c("h5", { staticClass: "mb-1" }, [
+                      _vm._v(_vm._s(_vm.showId.judul_buku))
+                    ]),
+                    _vm._v(" "),
+                    _c("small", [_vm._v(_vm._s(_vm.showId.kode_buku))])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "mb-1" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.showId.desc_buku) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("small", [_vm._v(" " + _vm._s(_vm.showId.penebit_buku))])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container mt-3" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.kode_buku,
+                    expression: "showId.kode_buku"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Kode Buku",
+                  autocomplete: "off",
+                  readonly: ""
+                },
+                domProps: { value: _vm.showId.kode_buku },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "kode_buku", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.judul_buku,
+                    expression: "showId.judul_buku"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.judul_buku },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "judul_buku", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.penerbit_buku,
+                    expression: "showId.penerbit_buku"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.penerbit_buku },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "penerbit_buku", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.penulis_buku,
+                    expression: "showId.penulis_buku"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.penulis_buku },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "penulis_buku", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.stock,
+                    expression: "showId.stock"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.stock },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "stock", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.tahun_penerbit,
+                    expression: "showId.tahun_penerbit"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.tahun_penerbit },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "tahun_penerbit", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.images,
+                    expression: "showId.images"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.images },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "images", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Kode Buku")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.showId.desc_buku,
+                    expression: "showId.desc_buku"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "Judul Buku",
+                  autocomplete: "off"
+                },
+                domProps: { value: _vm.showId.desc_buku },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.showId, "desc_buku", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", on: { click: _vm.updateBook } },
+              [_vm._v("\n                    Update\n                ")]
+            )
+          ])
+        ])
       ])
     ],
     1

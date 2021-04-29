@@ -23,7 +23,8 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $credentials['email'])->get();
-        return $this->respondWithToken($token, $user);
+        // var_dump(); die;
+        return $this->respondWithToken($token, $user[0]->name);
     }
 
     public function register(Request $request)

@@ -34,7 +34,7 @@ header('Access-Control-Allow-Origin: *');
 header( 'Access-Control-Allow-Headers: *');
 header('Access-Control-Allow-Methods:*');
 
-Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
+Route::group(['prefix' => 'v1', 'namespace' => 'Api', 'middleware' => 'auth.api'], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         Route::post('/register', [AuthController::class, 'register']);
