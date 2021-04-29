@@ -42,7 +42,19 @@
                                 infoFn: params =>
                                     `my own page ${params.firstRecordOnPage}`
                             }"
-                        />
+                        >
+                            <template slot="table-row" slot-scope="props">
+                                <span v-if="props.column.field == 'kode_buku'">
+                                    <span
+                                        style="font-weight: bold; color: blue;"
+                                        >{{ props.row.kode_buku }}</span
+                                    >
+                                </span>
+                                <span v-else>
+                                    {{ props.formattedRow[props.column.field] }}
+                                </span>
+                            </template></vue-good-table
+                        >
                     </div>
                 </div>
             </div>
@@ -86,7 +98,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -96,7 +108,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -106,7 +118,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -116,7 +128,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -126,7 +138,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -136,7 +148,7 @@
                             class="form-control"
                         />
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="">Kode Buku</label>
                         <input
                             type="text"
@@ -178,7 +190,7 @@ export default {
                 },
                 {
                     label: "Age",
-                    field: "penerbit_buku",
+                    field: "judul_buku",
                     type: "number"
                 },
                 {
@@ -196,7 +208,7 @@ export default {
             ],
             rows: [],
             showId: {
-                id_ :null,
+                id_: null,
                 kode_buku: null,
                 judul_buku: null,
                 penerbit_buku: null,
@@ -239,23 +251,43 @@ export default {
             this.showId.id_ = params.row.id;
         },
         updateBook() {
-            if (confirm("Do you really want to update ?")) {
-                this.$modal.hide("show_modal");
-                const formData = {
-                    kode_buku: this.showId.kode_buku,
-                    judul_buku: this.showId.judul_buku,
-                    penerbit_buku: this.showId.penerbit_buku,
-                    penulis_buku: this.showId.penulis_buku,
-                    stock: this.showId.stock,
-                    tahun_penerbit: this.showId.tahun_penerbit,
-                    // images: this.showId.images,
-                    desc_buku: this.showId.desc_buku
-                };
-                let uri = this.$baseUrl + "buku";
-                this.axios.put(uri + '/update/' + this.showId.id_, formData).then((res) => {
-                    console.log(res);
-                })
-            }
+            // if (confirm("Do you really want to update ?")) {
+
+            this.$swal({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: `Save`,
+                denyButtonText: `Don't save`
+            }).then(result => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    this.$modal.hide("show_modal");
+                    const formData = {
+                        kode_buku: this.showId.kode_buku,
+                        judul_buku: this.showId.judul_buku,
+                        penerbit_buku: this.showId.penerbit_buku,
+                        penulis_buku: this.showId.penulis_buku,
+                        stock: this.showId.stock,
+                        tahun_penerbit: this.showId.tahun_penerbit,
+                        // images: this.showId.images,
+                        desc_buku: this.showId.desc_buku
+                    };
+
+                    let uri = this.$baseUrl + "buku";
+                    this.axios
+                        .put(uri + "/update/" + this.showId.id_, formData)
+                        .then(res => {
+                            this.$swal("Hello Vue world!!!");
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                        });
+                } else if (result.isDenied) {
+                    this.$swal("Changes are not saved", "", "info");
+                }
+            });
+            // }
             return false;
         }
     }

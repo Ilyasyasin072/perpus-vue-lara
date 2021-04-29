@@ -53,10 +53,12 @@ trait BukuTrait {
 
         $buku->kode_buku = $data['kode_buku'];
         $buku->judul_buku = $data['judul_buku'];
+        $buku->penerbit_buku = $data['penerbit_buku'];
         $buku->penulis_buku = $data['penulis_buku'];
+        $buku->stock = $data['stock'];
         $buku->tahun_penerbit = $data['tahun_penerbit'];
-        $buku->stock = $data['tahun_penerbit'];
         $buku->desc_buku = $data['desc_buku'];
+
         try {
 
             $buku->save();
