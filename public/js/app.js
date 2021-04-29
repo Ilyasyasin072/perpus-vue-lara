@@ -2320,6 +2320,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2333,7 +2336,7 @@ __webpack_require__.r(__webpack_exports__);
           // class to be added to the parent th element
           enabled: true,
           // enable filter for this column
-          trigger: "enter" //only trigger on enter not on keyup
+          trigger: "keyup" //only trigger on enter not on keyup
 
         }
       }, {
@@ -2425,7 +2428,7 @@ __webpack_require__.r(__webpack_exports__);
           var uri = _this2.$baseUrl + "buku";
 
           _this2.axios.put(uri + "/update/" + _this2.showId.id_, formData).then(function (res) {
-            _this2.$swal("Hello Vue world!!!");
+            _this2.$swal("Update Success");
 
             setTimeout(function () {
               location.reload();
@@ -2437,6 +2440,34 @@ __webpack_require__.r(__webpack_exports__);
       }); // }
 
       return false;
+    },
+    deletebook: function deletebook() {
+      var _this3 = this;
+
+      this.$swal({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Save",
+        denyButtonText: "Don't save"
+      }).then(function (result) {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          _this3.$modal.hide("show_modal");
+
+          var uri = _this3.$baseUrl + "buku";
+
+          _this3.axios["delete"](uri + "/delete/" + _this3.showId.id_).then(function (res) {
+            _this3.$swal("Delete Success");
+
+            setTimeout(function () {
+              location.reload();
+            }, 1000);
+          });
+        } else if (result.isDenied) {
+          _this3.$swal("Changes are not saved", "", "info");
+        }
+      });
     }
   }
 });
@@ -51165,6 +51196,12 @@ var render = function() {
               "button",
               { staticClass: "btn", on: { click: _vm.updateBook } },
               [_vm._v("\n                    Update\n                ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", on: { click: _vm.deletebook } },
+              [_vm._v("\n                    delete\n                ")]
             )
           ])
         ])

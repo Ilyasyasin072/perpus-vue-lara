@@ -161,6 +161,9 @@
                     <button class="btn" @click="updateBook">
                         Update
                     </button>
+                    <button class="btn" @click="deletebook">
+                        delete
+                    </button>
                 </div>
             </div>
         </modal>
@@ -180,7 +183,7 @@ export default {
                     filterOptions: {
                         styleClass: "class1", // class to be added to the parent th element
                         enabled: true, // enable filter for this column
-                        trigger: "enter" //only trigger on enter not on keyup
+                        trigger: "keyup" //only trigger on enter not on keyup
                     }
                 },
                 {
@@ -278,7 +281,7 @@ export default {
                     this.axios
                         .put(uri + "/update/" + this.showId.id_, formData)
                         .then(res => {
-                            this.$swal("Hello Vue world!!!");
+                            this.$swal("Update Success");
                             setTimeout(() => {
                                 location.reload();
                             }, 1000);
@@ -289,6 +292,32 @@ export default {
             });
             // }
             return false;
+        },
+        deletebook() {
+
+            this.$swal({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: `Save`,
+                denyButtonText: `Don't save`
+            }).then(result => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    this.$modal.hide("show_modal");
+                    let uri = this.$baseUrl + "buku";
+                    this.axios
+                        .delete(uri + "/delete/" + this.showId.id_)
+                        .then(res => {
+                            this.$swal("Delete Success");
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                        });
+                } else if (result.isDenied) {
+                    this.$swal("Changes are not saved", "", "info");
+                }
+            });
         }
     }
 };
