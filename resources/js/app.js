@@ -73,7 +73,11 @@ const router = new VueRouter({
         {
             name: 'employee',
             path: '/employee',
-            component: Petugas
+            component: Petugas,
+
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             name: 'dashboard',
@@ -93,7 +97,11 @@ const router = new VueRouter({
         }, {
             name: 'books.create',
             path: '/book/create',
-            component: CreateBuku
+            component: CreateBuku,
+
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             name: 'books.show',
@@ -103,12 +111,20 @@ const router = new VueRouter({
         {
             name: 'borrowing',
             path: '/borrowing',
-            component: Peminjaman
+            component: Peminjaman,
+
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             name: 'repayment',
             path: '/repayment',
-            component: Pengembalian
+            component: Pengembalian,
+
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             name: 'bookcase',
@@ -118,7 +134,11 @@ const router = new VueRouter({
         {
             name: 'report.all',
             path: '/report/all',
-            component: Laporan
+            component: Laporan,
+
+            meta: {
+                requiresAuth: true
+            }
         },
         { path: '*', redirect: '/' }
     ]
@@ -135,7 +155,7 @@ router.beforeEach((to, from, next) => {
             let user = JSON.parse(localStorage.getItem('getuser'))
             if (user) {
 
-                next({ name: 'dashboard' })
+                next()
             } else {
 
                 next()
@@ -146,7 +166,7 @@ router.beforeEach((to, from, next) => {
             next()
         }
         else{
-            next({ name: 'dashboard'})
+            next()
         }
     }else {
         next()

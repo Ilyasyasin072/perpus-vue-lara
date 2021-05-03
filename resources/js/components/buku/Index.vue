@@ -173,6 +173,7 @@
 <script>
 import { VueGoodTable } from "vue-good-table";
 export default {
+    name: 'index',
     data() {
         return {
             books: [],

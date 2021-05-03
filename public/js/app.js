@@ -2325,6 +2325,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'index',
   data: function data() {
     return {
       books: [],
@@ -2693,6 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'create',
   data: function data() {
     return {
       errors: [],
@@ -3373,7 +3375,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
   }, {
     name: 'employee',
     path: '/employee',
-    component: _components_petugas_Index_vue__WEBPACK_IMPORTED_MODULE_19__.default
+    component: _components_petugas_Index_vue__WEBPACK_IMPORTED_MODULE_19__.default,
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'dashboard',
     path: '/',
@@ -3391,7 +3396,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
   }, {
     name: 'books.create',
     path: '/book/create',
-    component: _components_buku_create_vue__WEBPACK_IMPORTED_MODULE_28__.default
+    component: _components_buku_create_vue__WEBPACK_IMPORTED_MODULE_28__.default,
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'books.show',
     path: '/book/show/:id',
@@ -3399,11 +3407,17 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
   }, {
     name: 'borrowing',
     path: '/borrowing',
-    component: _components_peminjaman_Index_vue__WEBPACK_IMPORTED_MODULE_24__.default
+    component: _components_peminjaman_Index_vue__WEBPACK_IMPORTED_MODULE_24__.default,
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'repayment',
     path: '/repayment',
-    component: _components_pengembalian_Index_vue__WEBPACK_IMPORTED_MODULE_25__.default
+    component: _components_pengembalian_Index_vue__WEBPACK_IMPORTED_MODULE_25__.default,
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'bookcase',
     path: '/bookcase',
@@ -3411,7 +3425,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
   }, {
     name: 'report.all',
     path: '/report/all',
-    component: _components_report_Laporan_vue__WEBPACK_IMPORTED_MODULE_27__.default
+    component: _components_report_Laporan_vue__WEBPACK_IMPORTED_MODULE_27__.default,
+    meta: {
+      requiresAuth: true
+    }
   }, {
     path: '*',
     redirect: '/'
@@ -3432,9 +3449,7 @@ router.beforeEach(function (to, from, next) {
       var user = JSON.parse(localStorage.getItem('getuser'));
 
       if (user) {
-        next({
-          name: 'dashboard'
-        });
+        next();
       } else {
         next();
       }
@@ -3445,9 +3460,7 @@ router.beforeEach(function (to, from, next) {
     if (localStorage.getItem('token') == null) {
       next();
     } else {
-      next({
-        name: 'dashboard'
-      });
+      next();
     }
   } else {
     next();
