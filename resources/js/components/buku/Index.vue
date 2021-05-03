@@ -158,10 +158,10 @@
                             class="form-control"
                         />
                     </div>
-                    <button class="btn" @click="updateBook">
+                    <button class="btn btn-sm btn-success" @click="updateBook">
                         Update
                     </button>
-                    <button class="btn" @click="deletebook">
+                    <button class="btn btn-sm btn-danger" @click="deletebook">
                         delete
                     </button>
                 </div>
@@ -260,8 +260,8 @@ export default {
                 title: "Do you want to save the changes?",
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: `Save`,
-                denyButtonText: `Don't save`
+                confirmButtonText: `Update`,
+                denyButtonText: `Don't update`
             }).then(result => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -299,8 +299,8 @@ export default {
                 title: "Do you want to save the changes?",
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: `Save`,
-                denyButtonText: `Don't save`
+                confirmButtonText: `Delete`,
+                denyButtonText: `Don't delete`
             }).then(result => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {

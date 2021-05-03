@@ -48,68 +48,108 @@ import Pengembalian from './components/pengembalian/Index.vue';
 import Rak from './components/rak/Index.vue';
 import Laporan from './components/report/Laporan.vue';
 import CreateBuku from './components/buku/create.vue';
-
-const routes = [
-    {
-        name: 'login',
-        path: '/login',
-        component: Login
-    },
-    {
-        name: 'home',
-        path: '/homes',
-        component: Home
-    },
-    {
-        name: 'employee',
-        path: '/employee',
-        component: Petugas
-    },
-    {
-        name: 'dashboard',
-        path: '/',
-        component: Dashboard
-    },
-    {
-        name: 'books',
-        path: '/book',
-        component: Books
-    }, {
-        name: 'books.create',
-        path: '/book/create',
-        component: CreateBuku
-    },
-    {
-        name: 'books.show',
-        path: '/book/show/:id',
-        component: BookShow
-    },
-    {
-        name: 'borrowing',
-        path: '/borrowing',
-        component: Peminjaman
-    },
-    {
-        name: 'repayment',
-        path: '/repayment',
-        component: Pengembalian
-    },
-    {
-        name: 'bookcase',
-        path: '/bookcase',
-        component: Rak
-    },
-    {
-        name: 'report.all',
-        path: '/report/all',
-        component: Laporan
-    },
-    { path: '*', redirect: '/' }
-]
-
+import { fromJSON } from 'postcss';
 
 const router = new VueRouter({
     mode: 'history',
-    routes: routes,
+    // routes: routes,
+    routes : [
+        {
+            name: 'login',
+            path: '/login',
+            component: Login,
+            meta: {
+                guest: true
+            }
+        },
+        {
+            name: 'home',
+            path: '/homes',
+            component: Home,
+            meta: {
+                guest: true
+            }
+        },
+        {
+            name: 'employee',
+            path: '/employee',
+            component: Petugas
+        },
+        {
+            name: 'dashboard',
+            path: '/',
+            component: Dashboard,
+            meta: {
+                guest: true
+            }
+        },
+        {
+            name: 'books',
+            path: '/book',
+            component: Books,
+            meta: {
+                requiresAuth: true
+            }
+        }, {
+            name: 'books.create',
+            path: '/book/create',
+            component: CreateBuku
+        },
+        {
+            name: 'books.show',
+            path: '/book/show/:id',
+            component: BookShow
+        },
+        {
+            name: 'borrowing',
+            path: '/borrowing',
+            component: Peminjaman
+        },
+        {
+            name: 'repayment',
+            path: '/repayment',
+            component: Pengembalian
+        },
+        {
+            name: 'bookcase',
+            path: '/bookcase',
+            component: Rak
+        },
+        {
+            name: 'report.all',
+            path: '/report/all',
+            component: Laporan
+        },
+        { path: '*', redirect: '/' }
+    ]
+})
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (localStorage.getItem('token') == null) {
+            next({
+                path: '/login',
+                params: { nextUrl: to.fullPath }
+            })
+        } else {
+            let user = JSON.parse(localStorage.getItem('getuser'))
+            if (user) {
+
+                next({ name: 'dashboard' })
+            } else {
+
+                next()
+            }
+        }
+    }else if(to.matched.some(record => record.meta.guest)) {
+        if(localStorage.getItem('token') == null){
+            next()
+        }
+        else{
+            next({ name: 'dashboard'})
+        }
+    }else {
+        next()
+    }
 })
 const app = new Vue(Vue.util.extend({ router, store }, App)).$mount('#app');
