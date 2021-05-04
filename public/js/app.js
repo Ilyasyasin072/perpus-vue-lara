@@ -1854,6 +1854,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -1864,7 +1871,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.$store.dispatch('getMembers');
+    this.$store.dispatch("getMembers");
   }
 });
 
@@ -3342,7 +3349,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     employees: function employees() {
-      return this.$store.state.employees;
+      console.log(this.$store.getters);
+      return this.$store.getters.allEmployees;
     }
   },
   mounted: function mounted() {
@@ -3821,120 +3829,154 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue/dist/vue */ "./node_modules/vue/dist/vue.js");
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/config/baseUrl.js */ "./resources/js/components/config/baseUrl.js");
+/* harmony import */ var _modules_member__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/member */ "./resources/js/store/modules/member.js");
+/* harmony import */ var _modules_employees__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/employees */ "./resources/js/store/modules/employees.js");
 
 
 
 
-vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().use(vuex__WEBPACK_IMPORTED_MODULE_3__.default);
-(vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().prototype.$baseUrl) = _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri;
+vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().use(vuex__WEBPACK_IMPORTED_MODULE_3__.default); // Vue.prototype.$baseUrl = baseUri.uri;
+// const state = {
+//     books: [],
+//     employees: [],
+// }
+// const getters = {
+//     allBooks: (state) => state.books,
+// }
+// const actions = {
+//     getProduct({commit}) {
+//         let uri = baseUri.uri + "buku";
+//         axios.get(uri).then(res => {
+//             commit('GET_BOOKS', res.data.result);
+//         })
+//     },
+//     getEmployees({commit}) {
+//         let uri = baseUri.uri + "petugas";
+//         axios.get(uri).then(res => {
+//             console.log( res.data.result);
+//             commit('SET_EMPLOYEES', res.data.result)
+//         })
+//     },
+// }
+// const mutations = {
+//     GET_BOOKS(state, books) {
+//         state.books = books
+//     },
+//     SET_EMPLOYEES(state, employees) {
+//         state.employees = employees
+//     },
+//     // SET_MEMBERS(state, members) {
+//     //     state.members = members
+//     // }
+// }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__.default.Store({
+  modules: {
+    member: _modules_member__WEBPACK_IMPORTED_MODULE_0__.default,
+    employees: _modules_employees__WEBPACK_IMPORTED_MODULE_1__.default
+  } // state,
+  // getters,
+  // actions,
+  // mutations,
+
+}));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/employees.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/employees.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+
+
+var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "petugas";
 var state = {
-  books: [],
-  employees: [],
+  employees: []
+};
+var getters = {
+  allEmployees: function allEmployees(state) {
+    return state.employees;
+  }
+};
+var actions = {
+  getEmployees: function getEmployees(_ref) {
+    var commit = _ref.commit;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
+      commit('SET_EMPLOYEES', res.data.result);
+    });
+  }
+};
+var mutations = {
+  SET_EMPLOYEES: function SET_EMPLOYEES(state, employees) {
+    state.employees = employees;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/member.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/member.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+
+
+var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "anggota";
+var state = {
   members: []
 };
 var getters = {
-  allBooks: function allBooks(state) {
-    return state.books;
-  },
   allMembers: function allMembers(state) {
     return state.members;
   }
 };
 var actions = {
-  getProduct: function getProduct(_ref) {
+  getMembers: function getMembers(_ref) {
     var commit = _ref.commit;
-    var uri = _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "buku";
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
-      commit('GET_BOOKS', res.data.result);
-    });
-  },
-  getEmployees: function getEmployees(_ref2) {
-    var commit = _ref2.commit;
-    var uri = _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "petugas";
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
-      console.log(res.data.result);
-      commit('SET_EMPLOYEES', res.data.result);
-    });
-  },
-  getMembers: function getMembers(_ref3) {
-    var commit = _ref3.commit;
-    var uri = _components_config_baseUrl_js__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "anggota";
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
-      console.log(res.data.result);
       commit('SET_MEMBERS', res.data.result);
     });
   }
 };
 var mutations = {
-  GET_BOOKS: function GET_BOOKS(state, books) {
-    state.books = books;
-  },
-  SET_EMPLOYEES: function SET_EMPLOYEES(state, employees) {
-    state.employees = employees;
-  },
   SET_MEMBERS: function SET_MEMBERS(state, members) {
     state.members = members;
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__.default.Store({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   state: state,
   getters: getters,
   actions: actions,
   mutations: mutations
-})); // import axios from 'axios'
-// import Vue from 'vue/dist/vue'
-// import Vuex from 'vuex'
-// var data = [
-//   {
-//   id: 1,
-//   title: 'Shirt',
-//   price: '$40'
-//   },
-//   {
-//   id: 2,
-//   title: 'Trouser',
-//   price: '$10'
-//   },
-//   ]
-// Vue.use(Vuex);
-// // to handle state
-// const state = {
-//   posts : [],
-//   products : data
-// }
-// // to handle state
-// const getters = {
-//   allProducts: (state) => state.products,
-//   allPosts: (state) => state.posts
-// }
-// // to handle actions
-// const actions = {
-//   getPosts({commit}) {
-//     axios.get('https://jsonplaceholder.typicode.com/posts')
-//     .then(response => {
-//       commit('SET_POSTS', response.data)
-//       console.log(response.data)
-//     })
-//   }
-// }
-// // to handle mutations
-// const mutations = {
-//   SET_POSTS(state, posts) {
-//     state.posts = posts
-//   }
-// }
-// export default new Vuex.Store({
-//   state,
-//   getters,
-//   actions,
-//   mutations
-// })
+});
 
 /***/ }),
 
@@ -60110,7 +60152,17 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.members, function(item) {
         return _c("div", { key: item.id }, [
-          _c("h6", [_vm._v(_vm._s(item.id))])
+          _c("ul", [
+            _c("li", [
+              _c("h6", [_vm._v(_vm._s(item.nama_anggota))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(item.no_tlp_anggota))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(item.jurusan.nama_jurusan))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(item.jurusan.prodi))])
+            ])
+          ])
         ])
       })
     ],

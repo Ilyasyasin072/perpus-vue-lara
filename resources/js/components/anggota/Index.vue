@@ -2,15 +2,22 @@
     <div class="container-fluid mt-5">
         <h1>Anggota</h1>
         <div v-for="item in members" :key="item.id">
-            <h6>{{ item.id }}</h6>
+            <ul>
+                <li>
+                    <h6>{{ item.nama_anggota }}</h6>
+                    <p>{{ item.no_tlp_anggota }}</p>
+                    <p>{{ item.jurusan.nama_jurusan }}</p>
+                    <p>{{ item.jurusan.prodi }}</p>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return {}
+    data() {
+        return {};
     },
 
     computed: {
@@ -20,7 +27,7 @@ export default {
     },
 
     mounted() {
-        this.$store.dispatch('getMembers')
+        this.$store.dispatch("getMembers");
     }
 };
 </script>

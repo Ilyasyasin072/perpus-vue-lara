@@ -15,7 +15,8 @@ export default {
 
     computed: {
         employees() {
-            return this.$store.state.employees;
+            console.log(this.$store.getters)
+            return this.$store.getters.allEmployees;
         },
     },
 
