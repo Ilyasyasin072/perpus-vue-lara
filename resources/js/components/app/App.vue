@@ -1,108 +1,254 @@
 <template>
     <div class="page">
-             <nav class="navbar text-light top-nav">
-         <p class="text-center m-auto">E-Library</p>
-      </nav>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><router-link
-                        :to="{ name: 'dashboard' }"
-                        class="text-light"
+        <nav class="navbar text-light top-nav">
+            <p class="text-center m-auto">E-Library</p>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"
+                    ><router-link :to="{ name: 'dashboard' }" class="text-light"
                         >Perspustakaan</router-link
-                    ></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 ml-auto mb-lg-0" v-if="sessionToken">
-                <li class="nav-item">
-                   <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Buku
-                   </a>
-                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><router-link :to="{ name: 'books.create' }"><a class="dropdown-item" href="#" tabindex="-1" >Upload Book</a></router-link></li>
-                      <li>
-                         <hr class="dropdown-divider">
-                      </li>
-
-                      <li><router-link :to="{ name: 'books' }"><a class="dropdown-item" href="#" tabindex="-1" >List Book</a></router-link></li>
-                   </ul>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Anggota
-                   </a>
-                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><router-link :to="{ name: 'employee' }"><a class="dropdown-item" href="#" tabindex="-1" >Anggota</a></router-link></li>
-
-                      <li>
-                         <hr class="dropdown-divider">
-                      </li>
-                   </ul>
-                </li>
-                 <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Pengembalian
-                   </a>
-                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Peminjaman</a></li>
-                      <li>
-                         <hr class="dropdown-divider">
-                      </li>
-
-                      <li><a class="dropdown-item" href="#">Pengembalian</a></li>
-                   </ul>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Laporan
-                   </a>
-                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li> <router-link
-                        :to="{ name: 'report.all' }"
+                    ></a
+                >
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul
+                        class="navbar-nav me-auto mb-2 ml-auto mb-lg-0"
                         v-if="sessionToken"
-                        class="navbar-link"
-                        ><a class="dropdown-item" href="#">Laporan Harian</a></router-link
-                    ></li>
-                      <li>
-                         <hr class="dropdown-divider">
-                      </li>
+                    >
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="#"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Buku
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <router-link :to="{ name: 'books.create' }"
+                                        ><a
+                                            class="dropdown-item"
+                                            href="#"
+                                            tabindex="-1"
+                                            >Upload Book</a
+                                        ></router-link
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
 
-                      <li><a class="dropdown-item" href="#">Laporan Pertahun</a></li>
-                   </ul>
-                </li>
-                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Account
-                   </a>
-                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><a class="dropdown-item" href="#">Setting</a></li>
-                      <li>
-                         <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#"  @click="logout">logout</a></li>
-                   </ul>
-                </li>
-             </ul>
-                   <ul class="navbar-nav mb-2 ml-auto mb-lg-0 text-light" v-else>
-                      <li class="nav-item" style="text-decoration: none;">
-                     <router-link :to="{ name: 'login' }"
-                        ><a class="nav-link" href="#" tabindex="-1" >Login</a></router-link
+                                <li>
+                                    <router-link :to="{ name: 'books' }"
+                                        ><a
+                                            class="dropdown-item"
+                                            href="#"
+                                            tabindex="-1"
+                                            >List Book</a
+                                        ></router-link
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Anggota
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <router-link :to="{ name: 'member' }"
+                                        ><a
+                                            class="dropdown-item"
+                                            href="#"
+                                            tabindex="-1"
+                                            >Mahasiswa</a
+                                        ></router-link
+                                    >
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'employee' }"
+                                        ><a
+                                            class="dropdown-item"
+                                            href="#"
+                                            tabindex="-1"
+                                            >Petugas</a
+                                        ></router-link
+                                    >
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Pengembalian
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Peminjaman</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Pengembalian</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Laporan
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <router-link
+                                        :to="{ name: 'report.all' }"
+                                        v-if="sessionToken"
+                                        class="navbar-link"
+                                        ><a class="dropdown-item" href="#"
+                                            >Laporan Harian</a
+                                        ></router-link
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Laporan Pertahun</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Account
+                            </a>
+                            <ul
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Profile</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                        >Setting</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="#"
+                                        @click="logout"
+                                        >logout</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul
+                        class="navbar-nav mb-2 ml-auto mb-lg-0 text-light"
+                        v-else
                     >
-                  </li>
-                  <li class="nav-item">
-                    <router-link :to="{ name: 'login' }" class="text-light"
-                        ><a class="nav-link" href="#" tabindex="-1" >Register</a></router-link
-                    >
-                 </li>
-               </ul>
+                        <li class="nav-item" style="text-decoration: none;">
+                            <router-link :to="{ name: 'login' }"
+                                ><a class="nav-link" href="#" tabindex="-1"
+                                    >Login</a
+                                ></router-link
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <router-link
+                                :to="{ name: 'login' }"
+                                class="text-light"
+                                ><a class="nav-link" href="#" tabindex="-1"
+                                    >Register</a
+                                ></router-link
+                            >
+                        </li>
+                    </ul>
+                </div>
             </div>
-         </div>
-      </nav>
+        </nav>
 
         <!-- <div class="topnav container-fluid" id="myTopnav">
             <a href="" id="brand" class="navbar-brand">
@@ -185,18 +331,19 @@ export default {
     data() {
         return {
             sessionToken: null,
-            sessionUser: null,
+            sessionUser: null
         };
     },
     created() {
         this.sessionToken = token();
         this.sessionUser = getUser();
-        this.username = (this.sessionUser != null ?  this.sessionUser[0].name : '' );
+        this.username =
+            this.sessionUser != null ? this.sessionUser[0].name : "";
     },
     methods: {
         logout() {
             remmoveUserSession();
-            this.$router.go()
+            this.$router.go();
             this.$router.push({ name: "login" });
         },
         myFunction() {

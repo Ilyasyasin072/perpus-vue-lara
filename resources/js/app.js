@@ -39,6 +39,7 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import App from './components/app/App.vue';
 import Home from './components/home/Index.vue';
 import Petugas from './components/petugas/Index.vue';
+import Anggota from './components/anggota/Index.vue';
 import Dashboard from './components/dashboard/Index.vue';
 import Books from './components/buku/Index.vue';
 import BookShow from './components/buku/Show.vue';
@@ -74,13 +75,22 @@ const router = new VueRouter({
             }
         },
         {
+            name: 'member',
+            path: '/member',
+            component: Anggota,
+
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
             name: 'employee',
             path: '/employee',
             component: Petugas,
 
-            // meta: {
-            //     requiresAuth: true
-            // }
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             name: 'dashboard',

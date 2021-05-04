@@ -12,10 +12,12 @@ const state = {
 
     books: [],
     employees: [],
+    members: [],
 }
 
 const getters = {
     allBooks: (state) => state.books,
+    allMembers: (state) => state.members
 }
 
 const actions = {
@@ -36,6 +38,14 @@ const actions = {
     },
 
 
+    getMembers({commit}) {
+        let uri = baseUri.uri + "anggota";
+        axios.get(uri).then(res => {
+            console.log( res.data.result);
+            commit('SET_MEMBERS', res.data.result)
+        })
+    },
+
 }
 
 const mutations = {
@@ -47,6 +57,10 @@ const mutations = {
     SET_EMPLOYEES(state, employees) {
         state.employees = employees
     },
+
+    SET_MEMBERS(state, members) {
+        state.members = members
+    }
 
 }
 
