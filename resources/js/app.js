@@ -14,10 +14,10 @@ import UniqueId from 'vue-unique-id';
 import Vuex from 'vuex';
 // Use Vue, Vuerouter and Axios
 import { baseUri } from './components/config/baseUrl.js';
-import store from './components/config/store';
 import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
 
+import store from './store/index';
 import VModal from 'vue-js-modal'
 import 'vue-js-modal/dist/styles.css'
 
@@ -50,10 +50,13 @@ import Laporan from './components/report/Laporan.vue';
 import CreateBuku from './components/buku/create.vue';
 import { fromJSON } from 'postcss';
 
+const uri = 'http://localhost:8000/api/v1/auth/users/'
+const token = localStorage.getItem('token')
+
 const router = new VueRouter({
     mode: 'history',
     // routes: routes,
-    routes : [
+    routes: [
         {
             name: 'login',
             path: '/login',
@@ -75,9 +78,9 @@ const router = new VueRouter({
             path: '/employee',
             component: Petugas,
 
-            meta: {
-                requiresAuth: true
-            }
+            // meta: {
+            //     requiresAuth: true
+            // }
         },
         {
             name: 'dashboard',
@@ -140,7 +143,7 @@ const router = new VueRouter({
                 requiresAuth: true
             }
         },
-        { path: '*', redirect: '/' }
+        { path: '*', redirect: '/dashboard' }
     ]
 })
 
@@ -152,23 +155,25 @@ router.beforeEach((to, from, next) => {
                 params: { nextUrl: to.fullPath }
             })
         } else {
-            let user = JSON.parse(localStorage.getItem('getuser'))
-            if (user) {
+            let user = JSON.parse(localStorage.getItem('getuser'));
+                if (user) {
+                    next()
+                } else {
+                    next({
+                        path: '/login',
+                        params: { nextUrl: to.fullPath }
+                    })
+                }
 
-                next()
-            } else {
-
-                next()
-            }
         }
-    }else if(to.matched.some(record => record.meta.guest)) {
-        if(localStorage.getItem('token') == null){
+    } else if (to.matched.some(record => record.meta.guest)) {
+        if (localStorage.getItem('token') == null) {
             next()
         }
-        else{
+        else {
             next()
         }
-    }else {
+    } else {
         next()
     }
 })

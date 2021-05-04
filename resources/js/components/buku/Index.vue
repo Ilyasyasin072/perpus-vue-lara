@@ -238,7 +238,7 @@ export default {
             let uri = this.$baseUrl + "buku";
             this.axios.get(uri).then(response => {
                 console.log(response.data.result);
-                this.books = response.data.result;
+                // this.books = response.data.result;
                 this.rows = response.data.result;
             });
         },

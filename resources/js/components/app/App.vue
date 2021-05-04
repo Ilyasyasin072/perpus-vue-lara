@@ -36,7 +36,8 @@
                    Anggota
                    </a>
                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Manage Anggota</a></li>
+                     <li><router-link :to="{ name: 'employee' }"><a class="dropdown-item" href="#" tabindex="-1" >Anggota</a></router-link></li>
+
                       <li>
                          <hr class="dropdown-divider">
                       </li>

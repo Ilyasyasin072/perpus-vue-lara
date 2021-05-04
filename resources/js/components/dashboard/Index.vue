@@ -260,7 +260,10 @@ export default {
                     }
                 }
             });
-        }
+        },
+         book() {
+      return this.$store.state.books;
+    },
     },
     mounted() {
         let uri = this.$baseUrl + "buku";

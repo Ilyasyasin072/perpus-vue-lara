@@ -10,10 +10,6 @@ use App\Http\Controllers\Api\PengembalianController;
 use App\Http\Controllers\Api\PeminjamanController;
 use App\Http\Controllers\Api\LaporanController;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Storage;
-use Validator;
-use Carbon\Carbon;
-use Image;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,16 +25,17 @@ use Image;
 //     return $request->user();
 // });
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 // header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
-header( 'Access-Control-Allow-Headers: *');
-header('Access-Control-Allow-Methods:*');
+// header( 'Access-Control-Allow-Headers: *');
+// header('Access-Control-Allow-Methods:*');
 
-Route::group(['prefix' => 'v1', 'namespace' => 'Api', 'middleware' => 'auth.api'], function () {
+Route::group(['prefix' => 'v1', 'namespace' => 'Api'], function () {
 
     Route::group(['prefix' => 'auth'], function () {
         Route::post('/register', [AuthController::class, 'register']);
         Route::post('/login', [AuthController::class, 'login']);
+        Route::get('/users/{token}', [AuthController::class, 'getUser'])->name('users-get');
     });
 
     Route::group(['prefix' => 'anggota'], function () {
