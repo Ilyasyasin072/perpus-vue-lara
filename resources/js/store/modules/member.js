@@ -1,6 +1,4 @@
 // STORE
-
-import { baseUri } from '../../components/config/baseUrl';
 import memberApi from '../../api/members';
 
 const state = {

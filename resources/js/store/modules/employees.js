@@ -1,9 +1,6 @@
 // STORE
 
 import axios from 'axios'
-import { baseUri } from '../../components/config/baseUrl';
-
-const uri = baseUri.uri + "petugas"
 
 const state = {
     employees: [],

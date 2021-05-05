@@ -1845,7 +1845,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_good_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-good-table */ "./node_modules/vue-good-table/dist/vue-good-table.esm.js");
 //
 //
 //
@@ -1903,15 +1904,27 @@ __webpack_require__.r(__webpack_exports__);
       columns: [{
         label: "Name",
         field: "nama_anggota"
+      }, {
+        label: "Name",
+        field: "jurusan.nama_jurusan"
+      }, {
+        label: "Name",
+        field: "jurusan.prodi"
+      }, {
+        label: "Name",
+        field: "no_tlp_anggota"
       }]
     };
+  },
+  components: {
+    VueGoodTable: vue_good_table__WEBPACK_IMPORTED_MODULE_0__.VueGoodTable
   },
   // computed: {
   //     members() {
   //         return this.$store.getters.allMembers;
   //     }
   // },
-  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
     members: "allMembers",
     rows: "allMembers"
   }),
@@ -3633,6 +3646,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/book.js":
+/*!**********************************!*\
+  !*** ./resources/js/api/book.js ***!
+  \**********************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /opt/lampp/htdocs/latihan-laravel/resources/js/api/book.js: Unexpected token (20:12)\n\n\u001b[0m \u001b[90m 18 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     getBook \u001b[33m=\u001b[39m (cb) \u001b[33m=>\u001b[39m getBooksApi(cb)\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m\u001b[0m\n    at Parser._raise (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:775:17)\n    at Parser.raiseWithData (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:768:17)\n    at Parser.raise (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:736:17)\n    at Parser.unexpected (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:9716:16)\n    at Parser.checkExpressionErrors (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:9804:12)\n    at Parser.parseMaybeAssign (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10468:12)\n    at /opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10408:39\n    at Parser.allowInAnd (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12079:16)\n    at Parser.parseMaybeAssignAllowIn (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10408:17)\n    at Parser.parseExportDefaultExpression (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:13434:24)\n    at Parser.parseExport (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:13344:31)\n    at Parser.parseStatementContent (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12342:27)\n    at Parser.parseStatement (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12236:17)\n    at Parser.parseBlockOrModuleBlockBody (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12816:25)\n    at Parser.parseBlockBody (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12807:10)\n    at Parser.parseProgram (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12171:10)");
+
+/***/ }),
+
 /***/ "./resources/js/api/members.js":
 /*!*************************************!*\
   !*** ./resources/js/api/members.js ***!
@@ -4049,22 +4072,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue/dist/vue */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue/dist/vue */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_member__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/member */ "./resources/js/store/modules/member.js");
 /* harmony import */ var _modules_employees__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/employees */ "./resources/js/store/modules/employees.js");
+/* harmony import */ var _modules_book__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/book */ "./resources/js/store/modules/book.js");
 
 
 
 
-vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().use(vuex__WEBPACK_IMPORTED_MODULE_3__.default);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__.default.Store({
+
+vue_dist_vue__WEBPACK_IMPORTED_MODULE_3___default().use(vuex__WEBPACK_IMPORTED_MODULE_4__.default);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_4__.default.Store({
   modules: {
     member: _modules_member__WEBPACK_IMPORTED_MODULE_0__.default,
-    employees: _modules_employees__WEBPACK_IMPORTED_MODULE_1__.default
+    employees: _modules_employees__WEBPACK_IMPORTED_MODULE_1__.default,
+    book: _modules_book__WEBPACK_IMPORTED_MODULE_2__.default
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/book.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/book.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_book__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/book */ "./resources/js/api/book.js");
+/* harmony import */ var _api_book__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_api_book__WEBPACK_IMPORTED_MODULE_0__);
+// Store
+
+var state = {
+  books: []
+};
+var getters = {
+  allBooks: function allBooks(state) {
+    return state.books;
+  }
+};
+var actions = {
+  getBookStore: function getBookStore(_ref) {
+    var commit = _ref.commit;
+    _api_book__WEBPACK_IMPORTED_MODULE_0___default().getBook(function (res) {
+      commit('SET_BOOKS', res);
+    });
+  }
+};
+var mutations = {
+  SET_BOOKS: function SET_BOOKS(state, books) {
+    state.books = books;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
 
 /***/ }),
 
@@ -4081,11 +4152,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
 // STORE
 
-
-var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "petugas";
 var state = {
   employees: []
 };
@@ -4127,10 +4195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
-/* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
+/* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
 // STORE
-
 
 var state = {
   members: []
@@ -4146,13 +4212,13 @@ var actions = {
     // axios.get(uri).then(res => {
     //     commit('SET_MEMBERS', res.data.result)
     // })
-    _api_members__WEBPACK_IMPORTED_MODULE_1__.default.getMember(function (res) {
+    _api_members__WEBPACK_IMPORTED_MODULE_0__.default.getMember(function (res) {
       console.log(res);
       commit('SET_MEMBERS', res);
     });
   },
   postMembers: function postMembers(context, members, bool) {
-    _api_members__WEBPACK_IMPORTED_MODULE_1__.default.saveMember(members, function (response) {
+    _api_members__WEBPACK_IMPORTED_MODULE_0__.default.saveMember(members, function (response) {
       console.log(response);
 
       if (response.status === 200) {
@@ -60417,29 +60483,16 @@ var render = function() {
     "div",
     { staticClass: "container-fluid mt-5" },
     [
-      _c("h1", [_vm._v("Anggota")]),
-      _vm._v(" "),
-      _vm._l(_vm.members, function(item) {
-        return _c("div", { key: item.id }, [
-          _c("table", { staticClass: "table table-bordered" }, [
-            _vm._m(0, true),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", [
-                  _c("h6", [_vm._v(_vm._s(item.nama_anggota))]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(item.no_tlp_anggota))]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(item.jurusan.nama_jurusan))]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(item.jurusan.prodi))])
-                ])
-              ])
-            ])
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("router-link", { attrs: { to: "/member/create" } }, [
+            _vm._v("Member Create")
           ])
-        ])
-      }),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("vue-good-table", {
         attrs: {
@@ -60464,23 +60517,16 @@ var render = function() {
             pageLabel: "page", // for 'pages' mode
             allLabel: "All",
             infoFn: function(params) {
-              return "my own page " + params.firstRecordOnPage
+              return "Page " + params.firstRecordOnPage
             }
           }
         }
       })
     ],
-    2
+    1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [_c("th", [_vm._v("Anggota")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
