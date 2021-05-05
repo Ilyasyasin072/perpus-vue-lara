@@ -172,6 +172,7 @@
 
 <script>
 import { VueGoodTable } from "vue-good-table";
+import { mapGetters } from "vuex";
 export default {
     name: 'index',
     data() {
@@ -210,7 +211,7 @@ export default {
                     field: "tahun_penerbit"
                 }
             ],
-            rows: [],
+            // rows: [],
             showId: {
                 id_: null,
                 kode_buku: null,
@@ -230,18 +231,15 @@ export default {
     },
 
     mounted() {
-        this.getBooks();
+        this.$store.dispatch('getBookStore')
     },
 
+    computed: mapGetters({
+        rows: 'allBooks'
+    }),
+
     methods: {
-        getBooks: function() {
-            let uri = this.$baseUrl + "buku";
-            this.axios.get(uri).then(response => {
-                console.log(response.data.result);
-                // this.books = response.data.result;
-                this.rows = response.data.result;
-            });
-        },
+
         onRowClick(params) {
             this.$modal.show("show_modal");
             this.showId.kode_buku = params.row.kode_buku;

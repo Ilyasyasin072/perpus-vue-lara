@@ -2584,6 +2584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_good_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-good-table */ "./node_modules/vue-good-table/dist/vue-good-table.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2756,6 +2757,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'index',
@@ -2791,7 +2793,7 @@ __webpack_require__.r(__webpack_exports__);
         label: "Percent",
         field: "tahun_penerbit"
       }],
-      rows: [],
+      // rows: [],
       showId: {
         id_: null,
         kode_buku: null,
@@ -2809,19 +2811,12 @@ __webpack_require__.r(__webpack_exports__);
     VueGoodTable: vue_good_table__WEBPACK_IMPORTED_MODULE_0__.VueGoodTable
   },
   mounted: function mounted() {
-    this.getBooks();
+    this.$store.dispatch('getBookStore');
   },
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
+    rows: 'allBooks'
+  }),
   methods: {
-    getBooks: function getBooks() {
-      var _this = this;
-
-      var uri = this.$baseUrl + "buku";
-      this.axios.get(uri).then(function (response) {
-        console.log(response.data.result); // this.books = response.data.result;
-
-        _this.rows = response.data.result;
-      });
-    },
     onRowClick: function onRowClick(params) {
       this.$modal.show("show_modal");
       this.showId.kode_buku = params.row.kode_buku;
@@ -2835,7 +2830,7 @@ __webpack_require__.r(__webpack_exports__);
       this.showId.id_ = params.row.id;
     },
     updateBook: function updateBook() {
-      var _this2 = this;
+      var _this = this;
 
       // if (confirm("Do you really want to update ?")) {
       this.$swal({
@@ -2847,36 +2842,36 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (result) {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          _this2.$modal.hide("show_modal");
+          _this.$modal.hide("show_modal");
 
           var formData = {
-            kode_buku: _this2.showId.kode_buku,
-            judul_buku: _this2.showId.judul_buku,
-            penerbit_buku: _this2.showId.penerbit_buku,
-            penulis_buku: _this2.showId.penulis_buku,
-            stock: _this2.showId.stock,
-            tahun_penerbit: _this2.showId.tahun_penerbit,
+            kode_buku: _this.showId.kode_buku,
+            judul_buku: _this.showId.judul_buku,
+            penerbit_buku: _this.showId.penerbit_buku,
+            penulis_buku: _this.showId.penulis_buku,
+            stock: _this.showId.stock,
+            tahun_penerbit: _this.showId.tahun_penerbit,
             // images: this.showId.images,
-            desc_buku: _this2.showId.desc_buku
+            desc_buku: _this.showId.desc_buku
           };
-          var uri = _this2.$baseUrl + "buku";
+          var uri = _this.$baseUrl + "buku";
 
-          _this2.axios.put(uri + "/update/" + _this2.showId.id_, formData).then(function (res) {
-            _this2.$swal("Update Success");
+          _this.axios.put(uri + "/update/" + _this.showId.id_, formData).then(function (res) {
+            _this.$swal("Update Success");
 
             setTimeout(function () {
               location.reload();
             }, 1000);
           });
         } else if (result.isDenied) {
-          _this2.$swal("Changes are not saved", "", "info");
+          _this.$swal("Changes are not saved", "", "info");
         }
       }); // }
 
       return false;
     },
     deletebook: function deletebook() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.$swal({
         title: "Do you want to save the changes?",
@@ -2887,19 +2882,19 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (result) {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          _this3.$modal.hide("show_modal");
+          _this2.$modal.hide("show_modal");
 
-          var uri = _this3.$baseUrl + "buku";
+          var uri = _this2.$baseUrl + "buku";
 
-          _this3.axios["delete"](uri + "/delete/" + _this3.showId.id_).then(function (res) {
-            _this3.$swal("Delete Success");
+          _this2.axios["delete"](uri + "/delete/" + _this2.showId.id_).then(function (res) {
+            _this2.$swal("Delete Success");
 
             setTimeout(function () {
               location.reload();
             }, 1000);
           });
         } else if (result.isDenied) {
-          _this3.$swal("Changes are not saved", "", "info");
+          _this2.$swal("Changes are not saved", "", "info");
         }
       });
     }
@@ -4287,6 +4282,7 @@ var actions = {
   getBookStore: function getBookStore(_ref) {
     var commit = _ref.commit;
     _api_book__WEBPACK_IMPORTED_MODULE_0__.default.getBook(function (res) {
+      console.log(res);
       commit('SET_BOOKS', res);
     });
   }

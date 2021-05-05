@@ -81,6 +81,7 @@ export default {
     },
 
     created() {
+
         let uri = this.$baseUrl + "buku";
         this.axios.get(uri).then(response => {
             this.books = response.data.result;

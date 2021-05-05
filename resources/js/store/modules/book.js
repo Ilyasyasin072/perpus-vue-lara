@@ -12,7 +12,8 @@ const getters = {
 
 const actions = {
     getBookStore({commit}) {
-        bookApi.getBook(res => {
+        bookApi.getBook((res) => {
+            console.log(res)
             commit('SET_BOOKS', res)
         })
     }
