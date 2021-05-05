@@ -15,17 +15,20 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
     data() {
         return {};
     },
 
-    computed: {
-        members() {
-            return this.$store.getters.allMembers;
-        }
-    },
-
+    // computed: {
+    //     members() {
+    //         return this.$store.getters.allMembers;
+    //     }
+    // },
+    computed: mapGetters({
+        members: 'allMembers'
+    }),
     mounted() {
         this.$store.dispatch("getMembers");
     }

@@ -1845,6 +1845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -1861,18 +1862,117 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
   },
-  computed: {
-    members: function members() {
-      return this.$store.getters.allMembers;
-    }
-  },
+  // computed: {
+  //     members() {
+  //         return this.$store.getters.allMembers;
+  //     }
+  // },
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
+    members: 'allMembers'
+  }),
   mounted: function mounted() {
     this.$store.dispatch("getMembers");
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      member: {
+        // id: "",
+        kode_anggota: "",
+        nama_anggota: "",
+        jk_anggota: "",
+        id_jurusan: "",
+        no_tlp_anggota: "",
+        alamat_anggota: ""
+      }
+    };
+  },
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
+    members: "members"
+  }),
+  methods: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(["postMembers"])
 });
 
 /***/ }),
@@ -3493,6 +3593,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/members.js":
+/*!*************************************!*\
+  !*** ./resources/js/api/members.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+
+
+var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+  baseURL: _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri
+});
+
+function saveMembersApi(data, cb) {
+  api.post('anggota/store', data).then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+function getMemberApi(cb) {
+  api.get("anggota").then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  getMember: function getMember(cb) {
+    return getMemberApi(cb);
+  },
+  saveMember: function saveMember(data, cb) {
+    return saveMembersApi(data, cb);
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -3539,7 +3686,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_rak_Index_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/rak/Index.vue */ "./resources/js/components/rak/Index.vue");
 /* harmony import */ var _components_report_Laporan_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/report/Laporan.vue */ "./resources/js/components/report/Laporan.vue");
 /* harmony import */ var _components_buku_create_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/buku/create.vue */ "./resources/js/components/buku/create.vue");
-/* harmony import */ var postcss__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! postcss */ "./node_modules/postcss/lib/postcss.mjs");
+/* harmony import */ var _components_anggota_create_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/anggota/create.vue */ "./resources/js/components/anggota/create.vue");
+/* harmony import */ var postcss__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! postcss */ "./node_modules/postcss/lib/postcss.mjs");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -3587,6 +3735,7 @@ vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default().use((vue_js_modal__WEBPACK_I
 
 
 
+
 var uri = 'http://localhost:8000/api/v1/auth/users/';
 var token = localStorage.getItem('token');
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
@@ -3610,6 +3759,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_15__.default({
     name: 'member',
     path: '/member',
     component: _components_anggota_Index_vue__WEBPACK_IMPORTED_MODULE_20__.default,
+    meta: {
+      requiresAuth: true
+    }
+  }, {
+    name: 'member-create',
+    path: '/member/create',
+    component: _components_anggota_create_vue__WEBPACK_IMPORTED_MODULE_30__.default,
     meta: {
       requiresAuth: true
     }
@@ -3838,50 +3994,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().use(vuex__WEBPACK_IMPORTED_MODULE_3__.default); // Vue.prototype.$baseUrl = baseUri.uri;
-// const state = {
-//     books: [],
-//     employees: [],
-// }
-// const getters = {
-//     allBooks: (state) => state.books,
-// }
-// const actions = {
-//     getProduct({commit}) {
-//         let uri = baseUri.uri + "buku";
-//         axios.get(uri).then(res => {
-//             commit('GET_BOOKS', res.data.result);
-//         })
-//     },
-//     getEmployees({commit}) {
-//         let uri = baseUri.uri + "petugas";
-//         axios.get(uri).then(res => {
-//             console.log( res.data.result);
-//             commit('SET_EMPLOYEES', res.data.result)
-//         })
-//     },
-// }
-// const mutations = {
-//     GET_BOOKS(state, books) {
-//         state.books = books
-//     },
-//     SET_EMPLOYEES(state, employees) {
-//         state.employees = employees
-//     },
-//     // SET_MEMBERS(state, members) {
-//     //     state.members = members
-//     // }
-// }
-
+vue_dist_vue__WEBPACK_IMPORTED_MODULE_2___default().use(vuex__WEBPACK_IMPORTED_MODULE_3__.default);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__.default.Store({
   modules: {
     member: _modules_member__WEBPACK_IMPORTED_MODULE_0__.default,
     employees: _modules_employees__WEBPACK_IMPORTED_MODULE_1__.default
-  } // state,
-  // getters,
-  // actions,
-  // mutations,
-
+  }
 }));
 
 /***/ }),
@@ -3947,6 +4065,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+/* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
+
+
 
 
 var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "anggota";
@@ -3961,8 +4082,23 @@ var getters = {
 var actions = {
   getMembers: function getMembers(_ref) {
     var commit = _ref.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
-      commit('SET_MEMBERS', res.data.result);
+    // axios.get(uri).then(res => {
+    //     commit('SET_MEMBERS', res.data.result)
+    // })
+    _api_members__WEBPACK_IMPORTED_MODULE_2__.default.getMember(function (res) {
+      console.log(res);
+      commit('SET_MEMBERS', res);
+    });
+  },
+  postMembers: function postMembers(context, members, bool) {
+    _api_members__WEBPACK_IMPORTED_MODULE_2__.default.saveMember(members, function (response) {
+      console.log(response);
+
+      if (response.status === 200) {
+        state.members = 'Data Success has Saved';
+      }
+
+      context.dispatch('getMembers');
     });
   }
 };
@@ -58872,6 +59008,45 @@ component.options.__file = "resources/js/components/anggota/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/anggota/create.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/anggota/create.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=5a8b61e7& */ "./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7&");
+/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./resources/js/components/anggota/create.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__.render,
+  _create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/anggota/create.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/app/App.vue":
 /*!*********************************************!*\
   !*** ./resources/js/components/app/App.vue ***!
@@ -59354,6 +59529,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/anggota/create.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/anggota/create.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/app/App.vue?vue&type=script&lang=js&":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/app/App.vue?vue&type=script&lang=js& ***!
@@ -59544,6 +59735,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_059200d2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_059200d2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=059200d2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/Index.vue?vue&type=template&id=059200d2&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_5a8b61e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=template&id=5a8b61e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7&");
 
 
 /***/ }),
@@ -60170,6 +60378,229 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/anggota/create.vue?vue&type=template&id=5a8b61e7& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid mt-5" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.postMembers(_vm.member)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "panel panel-default" }, [
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.kode_anggota,
+                      expression: "member.kode_anggota"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.kode_anggota },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.member, "kode_anggota", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       Kode Anggota\n                  "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.nama_anggota,
+                      expression: "member.nama_anggota"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.nama_anggota },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.member, "nama_anggota", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       Nama Anggota\n                  "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.jk_anggota,
+                      expression: "member.jk_anggota"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.jk_anggota },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.member, "jk_anggota", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       Jenis Kelamin Anggota\n                  "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.id_jurusan,
+                      expression: "member.id_jurusan"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.id_jurusan },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.member, "id_jurusan", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       Jurusan Anggota\n                  "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.no_tlp_anggota,
+                      expression: "member.no_tlp_anggota"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.no_tlp_anggota },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.member,
+                        "no_tlp_anggota",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       No Tlp Anggota\n                  "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.member.alamat_anggota,
+                      expression: "member.alamat_anggota"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.member.alamat_anggota },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.member,
+                        "alamat_anggota",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(
+                  "\n                       Alamat Anggota\n                  "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-md-12" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-lg btn-success", attrs: { type: "submit" } },
+        [_vm._v("\n                  Submit\n                ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

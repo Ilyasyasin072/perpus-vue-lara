@@ -49,6 +49,7 @@ import Pengembalian from './components/pengembalian/Index.vue';
 import Rak from './components/rak/Index.vue';
 import Laporan from './components/report/Laporan.vue';
 import CreateBuku from './components/buku/create.vue';
+import Anggota_Create from './components/anggota/create.vue';
 import { fromJSON } from 'postcss';
 
 const uri = 'http://localhost:8000/api/v1/auth/users/'
@@ -78,6 +79,15 @@ const router = new VueRouter({
             name: 'member',
             path: '/member',
             component: Anggota,
+
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            name: 'member-create',
+            path: '/member/create',
+            component: Anggota_Create,
 
             meta: {
                 requiresAuth: true
