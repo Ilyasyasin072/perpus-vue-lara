@@ -1862,10 +1862,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      columns: [{
+        label: "Name",
+        field: "nama_anggota"
+      }]
+    };
   },
   // computed: {
   //     members() {
@@ -1873,7 +1912,8 @@ __webpack_require__.r(__webpack_exports__);
   //     }
   // },
   computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    members: 'allMembers'
+    members: "allMembers",
+    rows: "allMembers"
   }),
   mounted: function mounted() {
     this.$store.dispatch("getMembers");
@@ -3629,12 +3669,36 @@ function getMemberApi(cb) {
   });
 }
 
+function updateMemberApi(idmember, data, cb) {
+  api.put("anggota/update/" + idmember, data).then(function (res) {
+    cb({
+      status: 201
+    });
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
+function destroyMemberApi(idmember, cb) {
+  api["delete"]("anggota/delete" + idmember).then(function (res) {
+    cb(res);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   getMember: function getMember(cb) {
     return getMemberApi(cb);
   },
   saveMember: function saveMember(data, cb) {
     return saveMembersApi(data, cb);
+  },
+  putMember: function putMember(idmember, data, cb) {
+    return updateMemberApi(idmember, data, cb);
+  },
+  destroyMember: function destroyMember(idmember, cb) {
+    return destroyMemberApi(idmember, cb);
   }
 });
 
@@ -4018,6 +4082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+// STORE
 
 
 var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "petugas";
@@ -4062,15 +4127,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
-/* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+/* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
+// STORE
 
 
-
-
-var uri = _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri + "anggota";
 var state = {
   members: []
 };
@@ -4085,13 +4146,13 @@ var actions = {
     // axios.get(uri).then(res => {
     //     commit('SET_MEMBERS', res.data.result)
     // })
-    _api_members__WEBPACK_IMPORTED_MODULE_2__.default.getMember(function (res) {
+    _api_members__WEBPACK_IMPORTED_MODULE_1__.default.getMember(function (res) {
       console.log(res);
       commit('SET_MEMBERS', res);
     });
   },
   postMembers: function postMembers(context, members, bool) {
-    _api_members__WEBPACK_IMPORTED_MODULE_2__.default.saveMember(members, function (response) {
+    _api_members__WEBPACK_IMPORTED_MODULE_1__.default.saveMember(members, function (response) {
       console.log(response);
 
       if (response.status === 200) {
@@ -60360,24 +60421,66 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.members, function(item) {
         return _c("div", { key: item.id }, [
-          _c("ul", [
-            _c("li", [
-              _c("h6", [_vm._v(_vm._s(item.nama_anggota))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(item.no_tlp_anggota))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(item.jurusan.nama_jurusan))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(item.jurusan.prodi))])
+          _c("table", { staticClass: "table table-bordered" }, [
+            _vm._m(0, true),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [
+                  _c("h6", [_vm._v(_vm._s(item.nama_anggota))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(item.no_tlp_anggota))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(item.jurusan.nama_jurusan))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(item.jurusan.prodi))])
+                ])
+              ])
             ])
           ])
         ])
+      }),
+      _vm._v(" "),
+      _c("vue-good-table", {
+        attrs: {
+          columns: _vm.columns,
+          rows: _vm.rows,
+          "search-options": {
+            enabled: true
+          },
+          theme: "polar-bear",
+          "pagination-options": {
+            enabled: true,
+            mode: "records",
+            perPage: 10,
+            position: "bottom",
+            perPageDropdown: [5, 10, 15, 20],
+            dropdownAllowAll: true,
+            setCurrentPage: 2,
+            nextLabel: "next",
+            prevLabel: "prev",
+            rowsPerPageLabel: "Rows per page",
+            ofLabel: "of",
+            pageLabel: "page", // for 'pages' mode
+            allLabel: "All",
+            infoFn: function(params) {
+              return "my own page " + params.firstRecordOnPage
+            }
+          }
+        }
       })
     ],
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [_c("th", [_vm._v("Anggota")])])
+  }
+]
 render._withStripped = true
 
 

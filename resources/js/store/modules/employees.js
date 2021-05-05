@@ -1,3 +1,5 @@
+// STORE
+
 import axios from 'axios'
 import { baseUri } from '../../components/config/baseUrl';
 

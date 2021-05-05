@@ -1,9 +1,7 @@
-import axios from 'axios'
+// STORE
+
 import { baseUri } from '../../components/config/baseUrl';
 import memberApi from '../../api/members';
-import members from '../../api/members';
-
-const uri = baseUri.uri + "anggota"
 
 const state = {
     members: []

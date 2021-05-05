@@ -22,8 +22,26 @@ function getMemberApi(cb) {
     })
 }
 
+function updateMemberApi(idmember, data, cb) {
+    api.put("anggota/update/" + idmember, data).then((res) => {
+        cb({status: 201})
+    }).catch((err) => {
+        cb(err)
+    })
+}
+
+function destroyMemberApi(idmember , cb) {
+    api.delete("anggota/delete" + idmember).then((res) => {
+        cb(res)
+    }).catch((err) => {
+        cb(err)
+    })
+}
+
 
 export default {
     getMember: (cb) => getMemberApi(cb),
     saveMember: (data, cb) => saveMembersApi(data, cb),
+    putMember: (idmember, data, cb) => updateMemberApi(idmember, data, cb),
+    destroyMember: (idmember, cb) => destroyMemberApi(idmember, cb)
 }
