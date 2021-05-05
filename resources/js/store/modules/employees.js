@@ -1,6 +1,7 @@
 // STORE
 
 import axios from 'axios'
+import employeeApi from '../../api/employee'
 
 const state = {
     employees: [],
@@ -13,8 +14,11 @@ const getters = {
 const actions = {
 
     getEmployees({commit}) {
-        axios.get(uri).then(res => {
-            commit('SET_EMPLOYEES', res.data.result)
+        // axios.get(uri).then(res => {
+        //     commit('SET_EMPLOYEES', res.data.result)
+        // })
+        employeeApi.getEmployee(res => {
+            commit('SET_EMPLOYEES', res)
         })
     },
 

@@ -1,5 +1,6 @@
 // STORE
 import memberApi from '../../api/members';
+import { router } from '../../app';
 
 const state = {
     members: []
@@ -8,10 +9,9 @@ const state = {
 const getters = {
     allMembers: (state) => state.members
 }
-
 const actions = {
 
-    getMembers({commit}) {
+    getMembers({ commit }) {
         // axios.get(uri).then(res => {
         //     commit('SET_MEMBERS', res.data.result)
         // })
@@ -21,13 +21,14 @@ const actions = {
         })
     },
 
-    postMembers(context,  members, bool) {
+    postMembers(context, members, bool) {
         memberApi.saveMember(members, (response) => {
             console.log(response);
-            if(response.status === 200) {
-                state.members = 'Data Success has Saved'
-            }
+            // if(response.status === 200) {
+            state.members = 'Data Success has Saved'
+            // }
             context.dispatch('getMembers');
+            router.push({ name: "member" });
         })
     }
 }

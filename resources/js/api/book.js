@@ -17,5 +17,5 @@ function getBooksApi(cb) {
 
 
 export default {
-    getBook = (cb) => getBooksApi(cb),
+    getBook : (cb) => getBooksApi(cb),
 }

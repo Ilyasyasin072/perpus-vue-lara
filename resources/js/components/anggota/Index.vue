@@ -49,7 +49,6 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-
 import { VueGoodTable } from "vue-good-table";
 export default {
     data() {

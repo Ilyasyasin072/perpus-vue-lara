@@ -2007,13 +2007,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       member: {
         // id: "",
-        kode_anggota: "",
+        kode_anggota: Date.now(),
         nama_anggota: "",
         jk_anggota: "",
         id_jurusan: "",
@@ -2022,9 +2112,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    members: "members"
-  }),
+  // computed: mapGetters({
+  //     members: "members"
+  // }),
   methods: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(["postMembers"])
 });
 
@@ -3650,9 +3740,82 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************!*\
   !*** ./resources/js/api/book.js ***!
   \**********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /opt/lampp/htdocs/latihan-laravel/resources/js/api/book.js: Unexpected token (20:12)\n\n\u001b[0m \u001b[90m 18 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     getBook \u001b[33m=\u001b[39m (cb) \u001b[33m=>\u001b[39m getBooksApi(cb)\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m\u001b[0m\n    at Parser._raise (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:775:17)\n    at Parser.raiseWithData (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:768:17)\n    at Parser.raise (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:736:17)\n    at Parser.unexpected (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:9716:16)\n    at Parser.checkExpressionErrors (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:9804:12)\n    at Parser.parseMaybeAssign (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10468:12)\n    at /opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10408:39\n    at Parser.allowInAnd (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12079:16)\n    at Parser.parseMaybeAssignAllowIn (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:10408:17)\n    at Parser.parseExportDefaultExpression (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:13434:24)\n    at Parser.parseExport (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:13344:31)\n    at Parser.parseStatementContent (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12342:27)\n    at Parser.parseStatement (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12236:17)\n    at Parser.parseBlockOrModuleBlockBody (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12816:25)\n    at Parser.parseBlockBody (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12807:10)\n    at Parser.parseProgram (/opt/lampp/htdocs/latihan-laravel/node_modules/@babel/parser/lib/index.js:12171:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+
+
+var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+  baseURL: _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri
+});
+
+function getBooksApi(cb) {
+  api.get("buku").then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  getBook: function getBook(cb) {
+    return getBooksApi(cb);
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/api/employee.js":
+/*!**************************************!*\
+  !*** ./resources/js/api/employee.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/config/baseUrl */ "./resources/js/components/config/baseUrl.js");
+
+
+var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
+  baseURL: _components_config_baseUrl__WEBPACK_IMPORTED_MODULE_1__.baseUri.uri
+});
+
+function getEmployeeApi(cb) {
+  api.get("petugas").then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
+function postEmployeeApi(data, cb) {
+  api.get("petugas/store", data).then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  getEmployee: function getEmployee(cb) {
+    return getEmployeeApi(cb);
+  },
+  postEmployee: function postEmployee(data, cb) {
+    return postEmployeeApi(data, cb);
+  }
+});
 
 /***/ }),
 
@@ -3735,6 +3898,9 @@ function destroyMemberApi(idmember, cb) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "router": () => (/* binding */ router)
+/* harmony export */ });
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue */ "./node_modules/vue/dist/vue.js");
 /* harmony import */ var vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
@@ -3960,6 +4126,7 @@ var app = new (vue_dist_vue__WEBPACK_IMPORTED_MODULE_0___default())(vue_dist_vue
   store: _store_index__WEBPACK_IMPORTED_MODULE_11__.default
 }, _components_app_App_vue__WEBPACK_IMPORTED_MODULE_17__.default)).$mount('#app');
 
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -4106,7 +4273,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api_book__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/book */ "./resources/js/api/book.js");
-/* harmony import */ var _api_book__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_api_book__WEBPACK_IMPORTED_MODULE_0__);
 // Store
 
 var state = {
@@ -4120,7 +4286,7 @@ var getters = {
 var actions = {
   getBookStore: function getBookStore(_ref) {
     var commit = _ref.commit;
-    _api_book__WEBPACK_IMPORTED_MODULE_0___default().getBook(function (res) {
+    _api_book__WEBPACK_IMPORTED_MODULE_0__.default.getBook(function (res) {
       commit('SET_BOOKS', res);
     });
   }
@@ -4152,7 +4318,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_employee__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/employee */ "./resources/js/api/employee.js");
 // STORE
+
 
 var state = {
   employees: []
@@ -4165,8 +4333,11 @@ var getters = {
 var actions = {
   getEmployees: function getEmployees(_ref) {
     var commit = _ref.commit;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(uri).then(function (res) {
-      commit('SET_EMPLOYEES', res.data.result);
+    // axios.get(uri).then(res => {
+    //     commit('SET_EMPLOYEES', res.data.result)
+    // })
+    _api_employee__WEBPACK_IMPORTED_MODULE_1__.default.getEmployee(function (res) {
+      commit('SET_EMPLOYEES', res);
     });
   }
 };
@@ -4196,7 +4367,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api_members__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/members */ "./resources/js/api/members.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
 // STORE
+
 
 var state = {
   members: []
@@ -4219,13 +4392,14 @@ var actions = {
   },
   postMembers: function postMembers(context, members, bool) {
     _api_members__WEBPACK_IMPORTED_MODULE_0__.default.saveMember(members, function (response) {
-      console.log(response);
+      console.log(response); // if(response.status === 200) {
 
-      if (response.status === 200) {
-        state.members = 'Data Success has Saved';
-      }
+      state.members = 'Data Success has Saved'; // }
 
       context.dispatch('getMembers');
+      _app__WEBPACK_IMPORTED_MODULE_1__.router.push({
+        name: "member"
+      });
     });
   }
 };
@@ -60550,190 +60724,343 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid mt-5" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.postMembers(_vm.member)
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("div", { staticClass: "panel panel-default" }, [
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.kode_anggota,
-                      expression: "member.kode_anggota"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.kode_anggota },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.member, "kode_anggota", $event.target.value)
-                    }
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.postMembers(_vm.member)
                   }
-                }),
-                _vm._v(
-                  "\n                       Kode Anggota\n                  "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.nama_anggota,
-                      expression: "member.nama_anggota"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.nama_anggota },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("Email")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.member.kode_anggota,
+                          expression: "member.kode_anggota"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputEmail3",
+                        placeholder: "Kode Anggota",
+                        readonly: ""
+                      },
+                      domProps: { value: _vm.member.kode_anggota },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.member,
+                            "kode_anggota",
+                            $event.target.value
+                          )
+                        }
                       }
-                      _vm.$set(_vm.member, "nama_anggota", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(
-                  "\n                       Nama Anggota\n                  "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.jk_anggota,
-                      expression: "member.jk_anggota"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.jk_anggota },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputPassword3" }
+                    },
+                    [_vm._v("Nama Anggota")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.member.nama_anggota,
+                          expression: "member.nama_anggota"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputPassword3",
+                        placeholder: "Nama Anggota"
+                      },
+                      domProps: { value: _vm.member.nama_anggota },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.member,
+                            "nama_anggota",
+                            $event.target.value
+                          )
+                        }
                       }
-                      _vm.$set(_vm.member, "jk_anggota", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(
-                  "\n                       Jenis Kelamin Anggota\n                  "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.id_jurusan,
-                      expression: "member.id_jurusan"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.id_jurusan },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputPassword3" }
+                    },
+                    [_vm._v("Jurusan")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.member.id_jurusan,
+                          expression: "member.id_jurusan"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputPassword3",
+                        placeholder: "Nama Jurusan"
+                      },
+                      domProps: { value: _vm.member.id_jurusan },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.member,
+                            "id_jurusan",
+                            $event.target.value
+                          )
+                        }
                       }
-                      _vm.$set(_vm.member, "id_jurusan", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(
-                  "\n                       Jurusan Anggota\n                  "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.no_tlp_anggota,
-                      expression: "member.no_tlp_anggota"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.no_tlp_anggota },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputPassword3" }
+                    },
+                    [_vm._v("No Tlp")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.member.no_tlp_anggota,
+                          expression: "member.no_tlp_anggota"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputPassword3",
+                        placeholder: "Nama Jurusan"
+                      },
+                      domProps: { value: _vm.member.no_tlp_anggota },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.member,
+                            "no_tlp_anggota",
+                            $event.target.value
+                          )
+                        }
                       }
-                      _vm.$set(
-                        _vm.member,
-                        "no_tlp_anggota",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(
-                  "\n                       No Tlp Anggota\n                  "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("input", {
-                  directives: [
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.member.alamat_anggota,
-                      expression: "member.alamat_anggota"
-                    }
-                  ],
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.member.alamat_anggota },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "col-sm-2 col-form-label",
+                      attrs: { for: "inputPassword3" }
+                    },
+                    [_vm._v("Alamat")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.member.alamat_anggota,
+                          expression: "member.alamat_anggota"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "inputPassword3",
+                        placeholder: "Nama Jurusan"
+                      },
+                      domProps: { value: _vm.member.alamat_anggota },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.member,
+                            "alamat_anggota",
+                            $event.target.value
+                          )
+                        }
                       }
-                      _vm.$set(
-                        _vm.member,
-                        "alamat_anggota",
-                        $event.target.value
-                      )
-                    }
-                  }
-                }),
-                _vm._v(
-                  "\n                       Alamat Anggota\n                  "
-                )
-              ])
-            ])
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("fieldset", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "legend",
+                      { staticClass: "col-form-label col-sm-2 pt-0" },
+                      [
+                        _vm._v(
+                          "\n                                        Radios\n                                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-10" }, [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.member.jk_anggota,
+                              expression: "member.jk_anggota"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "gridRadios",
+                            id: "gridRadios1",
+                            value: "L",
+                            checked: ""
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.member.jk_anggota, "L")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(_vm.member, "jk_anggota", "L")
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "gridRadios1" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                                Laki-Laki\n                                            "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.member.jk_anggota,
+                              expression: "member.jk_anggota"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "gridRadios",
+                            id: "gridRadios2",
+                            value: "P"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.member.jk_anggota, "P")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(_vm.member, "jk_anggota", "P")
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "gridRadios2" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                                Perempuan\n                                            "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
           ])
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -60741,12 +61068,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-12" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-lg btn-success", attrs: { type: "submit" } },
-        [_vm._v("\n                  Submit\n                ")]
-      )
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [
+            _vm._v(
+              "\n                                        Sign in\n                                    "
+            )
+          ]
+        )
+      ])
     ])
   }
 ]

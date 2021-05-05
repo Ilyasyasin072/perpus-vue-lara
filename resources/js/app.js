@@ -198,3 +198,5 @@ router.beforeEach((to, from, next) => {
     }
 })
 const app = new Vue(Vue.util.extend({ router, store }, App)).$mount('#app');
+
+export { router }
