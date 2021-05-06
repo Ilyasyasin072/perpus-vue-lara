@@ -3118,6 +3118,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -3151,66 +3153,70 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     createBooks: function createBooks(e) {
-      var _this = this;
-
       // console.log()
-      //  if(this.kode_buku && this.judul_buku && this.penulis_buku && this.penerbit_buku && this.tahun_penerbit
-      //      && this.images && this.desc_buku && this.nama_rak && this.lokasi_rak) {
-      //   if(this.kode_buku ) {
-      var formData = new FormData();
-      formData.append('images', this.images);
+      if (this.kode_buku && this.judul_buku && this.penulis_buku && this.penerbit_buku && this.tahun_penerbit && this.images && this.desc_buku && this.nama_rak && this.lokasi_rak) {
+        var formData = new FormData();
+        formData.append('images', this.images);
 
-      _.each(this.formData, function (value, key) {
-        formData.append(key, value);
-      });
-
-      var uri = this.$baseUrl + "buku/store";
-      this.axios.post(uri, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then(function (result) {
-        console.log(result);
-
-        _this.$router.push({
-          name: 'dashboard'
+        _.each(this.formData, function (value, key) {
+          formData.append(key, value);
         });
-      })["catch"](function (err) {
-        if (err.response.status === 422) {
-          _this.errors = [];
 
-          _.each(err.response.data.errors, function (error) {
-            _.each(error, function (e) {
-              _this.errors.push(e);
-            });
-          });
-        }
-      }); //  }
-      //  this.errors = [];
-      //  if (!this.kode_buku) {
-      //       this.errors.push('Name required.');
-      //  }
-      //  if (!this.judul_buku) {
-      //       this.errors.push('Judul Buku required.');
-      //  }
-      //  if (!this.penulis_buku) {
-      //       this.errors.push('penulis_buku Buku required.');
-      //  }
-      //  if (!this.penerbit_buku) {
-      //       this.errors.push('penerbit_buku Buku required.');
-      //  }
-      //  if (!this.tahun_penerbit) {
-      //       this.errors.push('tahun_penerbit Buku required.');
-      //  }
-      //  if (!this.images) {
-      //       this.errors.push('images Buku required.');
-      //  }
-      //  if (!this.nama_rak) {
-      //       this.errors.push('nama_rak Buku required.');
-      //  }
-      //  if (!this.lokasi_rak) {
-      //       this.errors.push('lokasi_rak Buku required.');
-      //  }
+        this.$store.dispatch('postBookStore', formData); // let uri = this.$baseUrl + `buku/store`;
+        // this.axios.post(uri, formData, {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // }).then((result) => {
+        //     console.log(result);
+        //     this.$router.push({
+        //         name: 'dashboard'
+        //     })
+        // }).catch((err) => {
+        //     if (err.response.status === 422) {
+        //         this.errors = []
+        //         _.each(err.response.data.errors, error => {
+        //             _.each(error, e => {
+        //                 this.errors.push(e)
+        //             })
+        //         })
+        //     }
+        // })
+      }
+
+      this.errors = [];
+
+      if (!this.kode_buku) {
+        this.errors.push('Name required.');
+      }
+
+      if (!this.judul_buku) {
+        this.errors.push('Judul Buku required.');
+      }
+
+      if (!this.penulis_buku) {
+        this.errors.push('penulis_buku Buku required.');
+      }
+
+      if (!this.penerbit_buku) {
+        this.errors.push('penerbit_buku Buku required.');
+      }
+
+      if (!this.tahun_penerbit) {
+        this.errors.push('tahun_penerbit Buku required.');
+      }
+
+      if (!this.images) {
+        this.errors.push('images Buku required.');
+      }
+
+      if (!this.nama_rak) {
+        this.errors.push('nama_rak Buku required.');
+      }
+
+      if (!this.lokasi_rak) {
+        this.errors.push('lokasi_rak Buku required.');
+      }
 
       e.preventDefault();
     },
@@ -3572,6 +3578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue_good_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-good-table */ "./node_modules/vue-good-table/dist/vue-good-table.esm.js");
 //
 //
 //
@@ -3581,16 +3589,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      columns: [{
+        label: "Name",
+        field: "nama_petugas"
+      }, {
+        label: "Jabatan",
+        field: "jabatan_petugas"
+      }, {
+        label: "Alamat",
+        field: "alamat_petugas"
+      }, {
+        label: "Handphone",
+        field: "no_tlp_petugas"
+      }, {
+        label: "date",
+        field: "created_at"
+      }]
+    };
   },
-  computed: {
-    employees: function employees() {
-      console.log(this.$store.getters);
-      return this.$store.getters.allEmployees;
-    }
+  components: {
+    VueGoodTable: vue_good_table__WEBPACK_IMPORTED_MODULE_0__.VueGoodTable
   },
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
+    rows: "allEmployees"
+  }),
+  // computed: {
+  //     employees() {
+  //         console.log(this.$store.getters);
+  //         return this.$store.getters.allEmployees;
+  //     }
+  // },
   mounted: function mounted() {
     this.$store.dispatch("getEmployees");
   }
@@ -3759,9 +3820,24 @@ function getBooksApi(cb) {
   });
 }
 
+function postBooksApi(data, cb) {
+  api.post("buku/store", data, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }).then(function (res) {
+    cb(res.data.result);
+  })["catch"](function (err) {
+    cb(err);
+  });
+}
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   getBook: function getBook(cb) {
     return getBooksApi(cb);
+  },
+  postBook: function postBook(data, cb) {
+    return postBooksApi(data, cb);
   }
 });
 
@@ -3789,6 +3865,7 @@ var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
 
 function getEmployeeApi(cb) {
   api.get("petugas").then(function (res) {
+    console.log(res.data.result);
     cb(res.data.result);
   })["catch"](function (err) {
     cb(err);
@@ -4268,7 +4345,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api_book__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/book */ "./resources/js/api/book.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
 // Store
+
 
 var state = {
   books: []
@@ -4284,6 +4363,15 @@ var actions = {
     _api_book__WEBPACK_IMPORTED_MODULE_0__.default.getBook(function (res) {
       console.log(res);
       commit('SET_BOOKS', res);
+    });
+  },
+  postBookStore: function postBookStore(context, books, bool) {
+    _api_book__WEBPACK_IMPORTED_MODULE_0__.default.postBook(books, function (response) {
+      console.log(response);
+      context.dispatch('getBookStore');
+      _app__WEBPACK_IMPORTED_MODULE_1__.router.push({
+        name: 'books'
+      });
     });
   }
 };
@@ -62398,7 +62486,21 @@ var render = function() {
               _c(
                 "ul",
                 _vm._l(_vm.errors, function(error) {
-                  return _c("li", { key: error }, [_vm._v(_vm._s(error))])
+                  return _c(
+                    "div",
+                    {
+                      key: error,
+                      staticClass: "alert alert-danger",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _c(
+                        "a",
+                        { staticClass: "alert-link", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(error))]
+                      )
+                    ]
+                  )
                 }),
                 0
               )
@@ -63181,21 +63283,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Anggota Mahasiswa")]),
-      _vm._v(" "),
-      _vm._l(_vm.employees, function(item) {
-        return _c("div", { key: item.id }, [
-          _c("h5", [_vm._v(_vm._s(item.alamat_petugas))])
-        ])
-      })
-    ],
-    2
-  )
+  return _c("div", { staticClass: "container-fluid mt-5" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-sm-12 col-xs-12 col-md-12" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("vue-good-table", {
+            attrs: {
+              columns: _vm.columns,
+              rows: _vm.rows,
+              "search-options": {
+                enabled: true
+              },
+              theme: "polar-bear",
+              "pagination-options": {
+                enabled: true,
+                mode: "records",
+                perPage: 10,
+                position: "bottom",
+                perPageDropdown: [5, 10, 15, 20],
+                dropdownAllowAll: true,
+                setCurrentPage: 2,
+                nextLabel: "next",
+                prevLabel: "prev",
+                rowsPerPageLabel: "Rows per page",
+                ofLabel: "of",
+                pageLabel: "page", // for 'pages' mode
+                allLabel: "All",
+                infoFn: function(params) {
+                  return "Page " + params.firstRecordOnPage
+                }
+              }
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", [_c("strong", [_vm._v("Anggota")]), _vm._v(" Petugas")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("button", { staticStyle: { float: "right" } }, [
+        _vm._v("Tambah Petugas")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

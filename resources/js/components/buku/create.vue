@@ -8,7 +8,9 @@
       <form @submit.prevent="createBooks" method="post" enctype="multipart/form-data">
          <p v-if="errors.length">
          <ul>
-            <li v-for="error in errors" :key="error">{{ error }}</li>
+            <div class="alert alert-danger" role="alert" v-for="error in errors" :key="error">
+                <a href="#" class="alert-link">{{ error }}</a>
+            </div>
          </ul>
          </p>
          <div class="form-row">
@@ -105,9 +107,8 @@
          createBooks: function(e) {
             // console.log()
 
-            //  if(this.kode_buku && this.judul_buku && this.penulis_buku && this.penerbit_buku && this.tahun_penerbit
-            //      && this.images && this.desc_buku && this.nama_rak && this.lokasi_rak) {
-//   if(this.kode_buku ) {
+             if(this.kode_buku && this.judul_buku && this.penulis_buku && this.penerbit_buku && this.tahun_penerbit
+                 && this.images && this.desc_buku && this.nama_rak && this.lokasi_rak) {
       let formData = new FormData()
 
        formData.append('images', this.images)
@@ -115,59 +116,65 @@
         _.each(this.formData, (value, key) => {
           formData.append(key, value)
         })
-                let uri = this.$baseUrl + `buku/store`;
-                this.axios.post(uri, formData, {
-             headers: {
-                  'Content-Type': 'multipart/form-data'
-                }
-          }).then((result) => {
-                    console.log(result);
-                    this.$router.push({name: 'dashboard'})
-                }).catch((err) => {
-                   if (err.response.status === 422) {
-                    this.errors = []
-                    _.each(err.response.data.errors, error => {
-                    _.each(error, e => {
-                        this.errors.push(e)
-                    })
-            })
 
-          }
-                })
-            //  }
+        this.$store.dispatch('postBookStore', formData);
 
-            //  this.errors = [];
+        // let uri = this.$baseUrl + `buku/store`;
 
-            //  if (!this.kode_buku) {
-            //       this.errors.push('Name required.');
-            //  }
-            //  if (!this.judul_buku) {
-            //       this.errors.push('Judul Buku required.');
-            //  }
+        // this.axios.post(uri, formData, {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // }).then((result) => {
+        //     console.log(result);
+        //     this.$router.push({
+        //         name: 'dashboard'
+        //     })
+        // }).catch((err) => {
+        //     if (err.response.status === 422) {
+        //         this.errors = []
+        //         _.each(err.response.data.errors, error => {
+        //             _.each(error, e => {
+        //                 this.errors.push(e)
+        //             })
+        //         })
 
-            //  if (!this.penulis_buku) {
-            //       this.errors.push('penulis_buku Buku required.');
-            //  }
+        //     }
+        // })
+             }
 
-            //  if (!this.penerbit_buku) {
-            //       this.errors.push('penerbit_buku Buku required.');
-            //  }
+             this.errors = [];
 
-            //  if (!this.tahun_penerbit) {
-            //       this.errors.push('tahun_penerbit Buku required.');
-            //  }
+             if (!this.kode_buku) {
+                  this.errors.push('Name required.');
+             }
+             if (!this.judul_buku) {
+                  this.errors.push('Judul Buku required.');
+             }
 
-            //  if (!this.images) {
-            //       this.errors.push('images Buku required.');
-            //  }
+             if (!this.penulis_buku) {
+                  this.errors.push('penulis_buku Buku required.');
+             }
 
-            //  if (!this.nama_rak) {
-            //       this.errors.push('nama_rak Buku required.');
-            //  }
+             if (!this.penerbit_buku) {
+                  this.errors.push('penerbit_buku Buku required.');
+             }
 
-            //  if (!this.lokasi_rak) {
-            //       this.errors.push('lokasi_rak Buku required.');
-            //  }
+             if (!this.tahun_penerbit) {
+                  this.errors.push('tahun_penerbit Buku required.');
+             }
+
+             if (!this.images) {
+                  this.errors.push('images Buku required.');
+             }
+
+             if (!this.nama_rak) {
+                  this.errors.push('nama_rak Buku required.');
+             }
+
+             if (!this.lokasi_rak) {
+                  this.errors.push('lokasi_rak Buku required.');
+             }
 
              e.preventDefault();
          },

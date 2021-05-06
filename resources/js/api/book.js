@@ -15,7 +15,21 @@ function getBooksApi(cb) {
     })
 }
 
+function postBooksApi(data, cb) {
+
+    api.post("buku/store", data, {
+        headers: {
+             'Content-Type': 'multipart/form-data'
+           }
+     }).then((res) => {
+         cb(res.data.result)
+     }).catch((err) => {
+         cb(err)
+     })
+}
+
 
 export default {
     getBook : (cb) => getBooksApi(cb),
+    postBook: (data, cb) => postBooksApi(data, cb)
 }

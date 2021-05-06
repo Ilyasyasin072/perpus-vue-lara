@@ -8,6 +8,7 @@ const api = axios.create({
 
 function getEmployeeApi(cb) {
     api.get("petugas").then((res) =>{
+        console.log(res.data.result)
         cb(res.data.result)
     }).catch((err) => {
         cb(err)
